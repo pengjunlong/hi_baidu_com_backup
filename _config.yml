@@ -1,1 +1,4 @@
 baseurl: /hi_baidu_com_backup
+safe: true
+lsi: false
+pygments: true
