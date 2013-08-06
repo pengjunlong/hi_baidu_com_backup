@@ -4,8 +4,6 @@ function get_post($cururl)
     $content = file_get_contents($cururl);
     $content = preg_replace('/\R/u', '', $content);
     preg_match('/<div *class=content-other-info> *<span>(?P<time>[^<]*).*<h2 *class="title *content-title">(?P<title>[^<]*).*(?P<body><div *id=content *class="content *mod-cs-content *text-content *clearfix">.*<\/div>) *<div *class="mod-tagbox *clearfix"> *(?:<a *class="tag"[^>]*>#)*(?P<tag>[^<]*).*<div *class=detail-nav-pre> *<a href="(?P<preurl>[^"]*)/', $content, $matches);
-    var_dump($matches);
-    die;
     return $matches;
 }
 
