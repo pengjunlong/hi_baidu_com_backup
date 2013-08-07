@@ -7,17 +7,18 @@ function get_post($cururl)
     return $matches;
 }
 
-$cururl = 'http://hi.baidu.com/pengjunlong/item/a428613662f965fe96f88d43';
+$cururl = 'http://hi.baidu.com/pengjunlong/item/81234648285331d3c1a5923f';
 date_default_timezone_set('Asia/Hong_Kong');
 while (!empty($cururl)) {
     $matches = get_post($cururl);
-        var_dump($cururl);
     if (!empty($matches)) {
-        $filename = date('Y-m-d-', strtotime($matches['time'])) . preg_replace('/[ \/]/', '-', $matches['title']) . '.html';
-        $filename = '/Volumes/app/Users/pengjunlong/hi_baidu_com_backup/_posts/' . $filename;
-        $body = '<h2>' . $matches['tag'] . "</h2><br/><h1>" . preg_replace('/[ \/]/', '-', $matches['title']) . "</h1><hr/>\n" . $matches['body'];
+        $filename = date('Y-m-d-', strtotime($matches['time'])) . preg_replace('/\//', '_', base64_encode($matches['title'])) . '.html';
+        $filename = '/Volumes/app/Users/pengjunlong/bak/_posts/' . $filename;
+        $body = sprintf("---\nlayout: post\ntitle: %s\ntime: %s\nkeywords: %s\n---\n%s", $matches['title'], $matches['time'], $matches['tag'], $matches['body']);
         file_put_contents($filename, $body, FILE_APPEND | LOCK_EX);
         $cururl = !empty($matches['preurl']) ? $matches['preurl'] : '';
+    } else {
+        echo $cururl, "\n";
     }
     sleep(1);
 }
