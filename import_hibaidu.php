@@ -12,10 +12,7 @@ date_default_timezone_set('Asia/Hong_Kong');
 while (!empty($cururl)) {
     $matches = get_post($cururl);
     if (!empty($matches)) {
-        $title = base64_encode($matches['title']);
-        $title = preg_replace('/\+/', '-', $title);
-        $title = preg_replace('/\//', '_', $title);
-        $title = preg_replace('/=/', '__', $title);
+        $title = strtotime($matches['time']) . mt_rand(1, 999999);
         $filename = date('Y-m-d-', strtotime($matches['time'])) . $title . '.html';
         $filename = '/Volumes/app/Users/pengjunlong/bak/_posts/' . $filename;
         $body = sprintf("---\nlayout: post\ntitle: %s\ntime: %s\nkeywords: %s\n---\n%s", $matches['title'], $matches['time'], $matches['tag'], $matches['body']);
