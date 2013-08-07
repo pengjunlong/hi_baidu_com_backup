@@ -1,6 +1,6 @@
-hi_baidu_com_backup
+hi
 ===================
 
-Git+Github+Markdown+Jekyll备份百度空间  
+Git+Github+Markdown+Jekyll搭建自己的空间  
 
-[pages](http://pengjunlong.github.io/hi_baidu_com_backup)
+[pages](http://pengjunlong.github.io/hi)
