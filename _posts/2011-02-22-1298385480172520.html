@@ -1,0 +1,8 @@
+---
+layout: post
+title: 3：打印一个杨辉三角
+time: 2011-02-22 22:38
+tags: 好好学习天天向上
+---
+
+<div id=content class="content mod-cs-content text-content clearfix"> <p>&nbsp;1 &lt;?php<br />&nbsp;2 /*<br />&nbsp;3 3：打印一个杨辉三角<br />&nbsp;4 1<br />&nbsp;5 1 1<br />&nbsp;6 1 2&nbsp;&nbsp; 1<br />&nbsp;7 1 3&nbsp;&nbsp; 3 1<br />&nbsp;8 1 4&nbsp;&nbsp; 6 4 1<br />&nbsp;9 1 5 10 10 5 1<br />10 */<br />11 function&nbsp;triangle($n){<br />12 &nbsp;&nbsp;&nbsp;&nbsp;for($i=0;$i&lt;$n;$i++){<br />13 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for($j=0;$j&lt;=$i;$j++){<br />14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if($j==0||$i==$j){<br />15 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$arr[$i][$j]=1;<br />16 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }else&nbsp;{<br />17 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$arr[$i][$j]=$arr[$i-1][$j]+$arr[$i-1][$j-1];<br />18 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />19 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;$arr[$i][$j].&quot;\t&quot;;<br />20 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />21 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;&quot;&lt;br&gt;&quot;;<br />22 &nbsp;&nbsp;&nbsp;&nbsp;}<br />23 }<br />24 triangle(6);<br />25 ?&gt;<br /></p> </div>

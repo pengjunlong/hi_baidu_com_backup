@@ -1,0 +1,8 @@
+---
+layout: post
+title: sudo: mysql: command not found解决方法
+time: 2011-08-11 13:20
+tags: 好好学习天天向上
+---
+
+<div id=content class="content mod-cs-content text-content clearfix"> <p>/etc/sudoers</p><p>#<br /># This file MUST be edited with the 'visudo' command as root.<br />#<br /># Please consider adding local content in /etc/sudoers.d/ instead of<br /># directly modifying this file.<br />#<br /># See the man page for details on how to write a sudoers file.<br />#<br /><strong>Defaults&nbsp;&nbsp;&nbsp; env_reset</strong></p><p><br /></p><p><strong>reset后新添加的PATH项并没起作用</strong></p><p><strong><br /></strong></p><p>cool@Linux:~$ sudo env | grep PATH<br />PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin<br />cool@Linux:~$ echo $PATH<br />/usr/local/mysql/bin:/usr/local/apache2/bin:/usr/local/bin:/usr/bin:/bin:/usr/games</p><p><br /></p><p>解决方法：</p><p></p><p>方法1： 在/etc/sudoers文件内增加这么一行:Defaults secure_path=”/bin:/usr/bin:/usr/local/bin:…”, 把要用的命令path包括进去。</p><p>&nbsp;</p><p>方法2： 用命令的绝对路径。</p><p>&nbsp;</p><p>方法3： 使用sudo的env选项,像这样sudo env PATH=$PATH cmd。</p><p>&nbsp;</p><p>方法4： 把脚本拷贝或链接到系统$PATH中。</p><p>&nbsp;</p><p>方法5： 重新编译sudo,不带–with-secure-path选项了.(终极解决办法)。</p><p></p> </div>

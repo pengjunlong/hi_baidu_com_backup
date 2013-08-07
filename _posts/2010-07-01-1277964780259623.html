@@ -1,0 +1,8 @@
+---
+layout: post
+title: 空类大小1，指针大小相同
+time: 2010-07-01 14:13
+tags: 好好学习天天向上
+---
+
+<div id=content class="content mod-cs-content text-content clearfix"> #include &lt;iostream&gt;<br />using namespace std;<br /><br />class A1<br />{<br />};<br />class A2<br />{<br />char a,b;<br />};<br /><br />struct B1<br />{<br />};<br />struct B2<br />{<br />char c,d;<br />};<br />struct B3<br />{<br />int e,f;<br />};<br />int main()<br />{<br />cout&lt;&lt;sizeof(A1)&lt;&lt;endl;<br />cout&lt;&lt;sizeof(A2)&lt;&lt;endl;<br />cout&lt;&lt;sizeof(B1)&lt;&lt;endl;<br />cout&lt;&lt;sizeof(B2)&lt;&lt;endl;<br />cout&lt;&lt;sizeof(B3)&lt;&lt;endl;<br />A1 *p1=new A1();<br />B1 *p2;<br />A1 p3;<br />cout&lt;&lt;sizeof(p1)&lt;&lt;endl;<br />cout&lt;&lt;sizeof(p2)&lt;&lt;endl;<br />cout&lt;&lt;sizeof(p3)&lt;&lt;endl;<br />return 0;<br />} </div>

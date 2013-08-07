@@ -1,0 +1,8 @@
+---
+layout: post
+title: N以内质数-PHP语言描述
+time: 2011-04-30 22:30
+tags: 好好学习天天向上
+---
+
+<div id=content class="content mod-cs-content text-content clearfix"> <p></p> 1 &lt;?php 2 $N = 10000; 3 for($i = 2; $i &lt; $N; $i++) 4 { 5         $flag = 1; 6         for($j = 2; $j &lt;= sqrt($i); $j++) 7                 if($i % $j == 0) 8                         $flag = 0; 9         if ($flag == 1)10                 echo $i.&quot;&lt;br/&gt;&quot;;11 }12 ?&gt; </div>
