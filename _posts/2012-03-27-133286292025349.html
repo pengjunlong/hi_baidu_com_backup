@@ -1,8 +1,0 @@
----
-layout: post
-title: vim支持php初探
-time: 2012-03-27 23:42
-tags: 好好学习天天向上
----
-
-<div id=content class="content mod-cs-content text-content clearfix"> <p>1，添加函数关键词</p><p>http://www.php.net/quickref.php</p><p>存到.vim/syntax/php_funclist.txt</p><p>&nbsp;</p><p>2，编辑.vimrc</p><p>filetype on<br />au FileType php call MyPHP()<br />&quot; For PHP<br />function MyPHP()<br />&nbsp;&nbsp;&nbsp; set dictionary-=/home/cool/.vim/syntax/php_funclist.txt dictionary+=/home/cool/.vim/syntax/php_funclist.txt<br />&nbsp;&nbsp;&nbsp; set complete-=k complete+=k<br />endfunction</p><p>&nbsp;</p><p>3，ctrl+P</p><p><a href="http://www.php.net.sixxs.org/quickref.php"></a></p> </div>
