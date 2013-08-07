@@ -1,0 +1,8 @@
+---
+layout: post
+title: sizeof 数组 指针
+time: 2011-10-17 22:28
+tags: 好好学习天天向上
+---
+
+<div id=content class="content mod-cs-content text-content clearfix"> <p>#include &lt;stdio.h&gt;<br />#include &lt;stdlib.h&gt;<br /><br />void ko(char cc[100])<br />{<br />&nbsp;&nbsp;&nbsp; printf(&quot;%d\n&quot;, sizeof(cc));<br />}<br /><br />int main(int argc, char* argv[])<br />{<br />&nbsp;&nbsp;&nbsp; char c[100] = &quot;hello&quot;;<br />&nbsp;&nbsp;&nbsp; printf(&quot;%d\n&quot;, sizeof(c));<br />&nbsp;&nbsp;&nbsp; ko(c);<br />&nbsp;&nbsp;&nbsp; /*<br />&nbsp;&nbsp;&nbsp; while (printf(&quot;Hello, world\n&quot;)) {<br />&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; */<br />&nbsp;&nbsp;&nbsp; return 0;<br />}<br /></p> </div>

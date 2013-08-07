@@ -1,0 +1,8 @@
+---
+layout: post
+title: mysql记录apache访问日志
+time: 2011-07-02 01:35
+tags: 好好学习天天向上
+---
+
+<div id=content class="content mod-cs-content text-content clearfix"> 3.8.&nbsp;与Apache一起使用MySQL<a name="id2739926"></a> 还有一些项目，你可以从MySQL数据库鉴别用户，并且你还可以将日志文件写入MySQL数据库表。<p> 你可以将以下内容放到Apache配置文件中，更改Apache日志格式，使MySQL更容易读取：</p> LogFormat \ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;\&quot;%h\&quot;,%{ %Y%m%d%H%M%S}t,%&gt;s,\&quot;%b\&quot;,\&quot;%{Content-Type}o\&quot;,&nbsp; \ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \&quot;%U\&quot;,\&quot;%{Referer}i\&quot;,\&quot;%{User-Agent}i\&quot;&quot; <p>要想将该格式的日志文件装载到MySQL，你可以使用以下语句: </p> LOAD DATA INFILE '<i>/local/access_log</i>' INTO TABLE <i>tbl_name</i> FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '&quot;' ESCAPED BY '\\' <p>所创建的表中的列应与写入日志文件的LogFormat行对应。</p> </div>
