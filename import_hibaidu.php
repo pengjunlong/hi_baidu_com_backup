@@ -12,10 +12,10 @@ date_default_timezone_set('Asia/Hong_Kong');
 while (!empty($cururl)) {
     $matches = get_post($cururl);
     if (!empty($matches)) {
-        $title = strtotime($matches['time']) . mt_rand(1, 999999);
+        $title = strtotime($matches['time']) . mt_rand(1, 666666);
         $filename = date('Y-m-d-', strtotime($matches['time'])) . $title . '.html';
         $filename = '/Volumes/app/Users/pengjunlong/bak/_posts/' . $filename;
-        $body = sprintf("---\nlayout: post\ntitle: %s\ntime: %s\nkeywords: %s\n---\n%s", $matches['title'], $matches['time'], $matches['tag'], $matches['body']);
+        $body = sprintf("---\nlayout: post\ntitle: %s\ntime: %s\ntags: %s\n---\n\n%s", $matches['title'], $matches['time'], $matches['tag'], $matches['body']);
         file_put_contents($filename, $body, FILE_APPEND | LOCK_EX);
         $cururl = !empty($matches['preurl']) ? $matches['preurl'] : '';
     } else {

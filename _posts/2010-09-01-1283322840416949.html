@@ -1,0 +1,8 @@
+---
+layout: post
+title: toHTML.js
+time: 2010-09-01 14:34
+tags: 好好学习天天向上
+---
+
+<div id=content class="content mod-cs-content text-content clearfix"> <br />function $(v){ return document.getElementById(v);}<br /><br />function&#160;&#160; closeall()&#160;&#160; <br />{&#160;&#160; <br />for&#160;&#160; (x=0;x&lt;=20;x++)&#160;&#160; {&#160;&#160; <br />document.all(&quot;m&quot;+x).style.display=&quot;none&quot;;&#160;&#160; //???&#160;&#160; <br />}&#160;&#160; <br /><br />}&#160; <br />function&#160;&#160; openall()&#160;&#160; <br />{&#160;&#160; <br />for&#160;&#160; (x=0;x&lt;=20;x++)&#160;&#160; {&#160;&#160; <br />document.all(&quot;m&quot;+x).style.display=&quot;&quot;;&#160;&#160; //???&#160;&#160; <br />}&#160;&#160; <br /><br />}&#160; <br />function setmenu(id){<br />if ($('m' + id).style.display == '') {<br />$('m' + id).style.display = 'none';<br />$('mt' + id).className = 'boxtop';<br />} else {<br />$('m' + id).style.display = '';<br />$('mt' + id).className = 'boxtopj';<br />for&#160;&#160; (x=0;x&lt;=20;x++)&#160;&#160; {&#160;&#160; <br />if(x!=id) document.all(&quot;m&quot;+x).style.display=&quot;none&quot;;&#160;&#160; //???&#160;&#160; <br />}&#160; <br />}<br /><br />}<br /><br /><br /><br />function filmurl(u) {<br />var playname = Array();<br />var playadd = Array();<br />playname[0] = '默认服务器';<br />playadd[0] = u;<br />TV.filename=playadd[0];<br />TV.url=playadd[0];<br />document.title=u.substring(u.lastIndexOf(&quot;/&quot;) + 1);<br /><br /><br />}<br /><br /> </div>
