@@ -1,0 +1,8 @@
+---
+layout: post
+title: Windows终端telnet时自动输入用户名、密码_bat
+time: 2012-05-14 00:01
+tags: 好好学习天天向上
+---
+
+<div id=content class="content mod-cs-content text-content clearfix"> <p>以登录北邮人论坛为例~~</p><p>&nbsp;</p><p>&nbsp;</p><p>@echo off<br />echo set sh=WScript.CreateObject(&quot;WScript.Shell&quot;) &gt;telnet_tmp.vbs<br />echo WScript.Sleep 300 &gt;&gt;telnet_tmp.vbs<br />echo sh.SendKeys &quot;open bbs.byr.cn&quot; &gt;&gt;telnet_tmp.vbs<br />echo WScript.Sleep 300 &gt;&gt;telnet_tmp.vbs<br />echo sh.SendKeys &quot;{ENTER}&quot; &gt;&gt;telnet_tmp.vbs<br />echo WScript.Sleep 300 &gt;&gt;telnet_tmp.vbs<br />echo sh.SendKeys &quot;用户名{ENTER}&quot; &gt;&gt;telnet_tmp.vbs<br />echo WScript.Sleep 300 &gt;&gt;telnet_tmp.vbs<br />echo sh.SendKeys &quot;密码{ENTER}&quot; &gt;&gt;telnet_tmp.vbs<br />start telnet<br />cscript //nologo telnet_tmp.vbs<br />del telnet_tmp.vbs</p><p>&nbsp;</p><p>&nbsp;</p><p>ps: win7默认没有开启telnet功能，需要在控制面板的“程序和功能”中勾上telnet客户端</p> </div>
