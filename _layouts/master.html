@@ -5,11 +5,12 @@
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>九头鸟龙 - {{ page.title }}</title>
-    <link rel="stylesheet" href="/stylesheets/master.css" type="text/css" media="screen" charset="utf-8"/>
-    <script src="/javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/javascripts/jquery.github.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/master.css" type="text/css" media="screen" charset="utf-8"/>
+    <script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
   </head>
   <body>
+    <canvas id="c" width="1024" height="768" align="center"></canvas>
+    <script src="/js/spring.js"></script>
     <div id='wrapper'>
       <div id='header'>
         <h1>Life</h1>
@@ -34,10 +35,15 @@
     <div id='footer'>
       Copyright &copy; 2013 九头鸟龙. Hosted by <a href='http://github.com/pengjunlong' target='_blank'>GitHub</a> and powered by <a href='http://github.com/mojombo/jekyll'>Jekyll</a>.
     </div>
-    <script src="https://www.google-analytics.com/analytics.js"></script>
-    <script>
-        ga('create', 'UA-43024673-1', 'pengjunlong.github.io');
-        ga('send', 'pageview');
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "https://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
     </script>
+    <script type="text/javascript">
+        var pageTracker = _gat._getTracker("UA-43024673-1");
+        pageTracker._trackPageview();
+    </script>
+    <!-- Google Analytics end -->
   </body>
 </html>

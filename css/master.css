@@ -250,3 +250,35 @@ div.related {
 .float-right { float: right; }
 
 a img { border: 0; }
+
+/* 增加样式 */
+/* typography */
+
+@font-face {
+  font-family: "Essays 1743";
+  src: url("/img/Essays1743.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Essays 1743";
+  font-weight: bold;
+  src: url("/img/Essays1743-bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Essays 1743";
+  font-style: italic;
+  src: url("/img/Essays1743-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Essays 1743";
+  font-style: italic;
+  font-weight: bold;
+  src: url("/img/Essays1743-bold-italic.ttf") format("truetype");
+}
+/* headers */
+
+h1, h2, h3, h4, caption, thead th {
+  font-family: "Essays 1743", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-shadow: 0 0 1px #667;
+}
