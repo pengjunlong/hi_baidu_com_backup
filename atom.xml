@@ -15,13 +15,17 @@ layout: nil
  </author>
 
  {% for post in site.posts %}
+{% if forloop.index < 16 %}
  <entry>
    <title>{{ post.title }}</title>
    <link href="https://pengjunlong.github.com{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
    <id>https://pengjunlong.github.com{{ post.id }}</id>
-   <content type="html">{{ post.content | xml_escape }}</content>
+   <content type="html">
+   <![CDATA[{{ post.content }}]]>
+   </content>
  </entry>
+{% endif %}
  {% endfor %}
  
 </feed>

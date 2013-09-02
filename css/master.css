@@ -105,7 +105,7 @@ span.date {
   font-weight: bold;
   color: white;
   border-bottom: 3px solid #262;
-  float: left;
+  float: right;
 }
 
 div.post {
@@ -127,6 +127,7 @@ div.post {
   margin: 0 0 0.2em 0;
   border-bottom: 1px dashed #dba;
   font-weight: bold;
+  float: left;
 }
 
 .post br { margin-bottom: 10px;}
@@ -292,3 +293,30 @@ h1, h2, h3, h4, caption, thead th {
 #archive ul li time{display:inline-block;padding-right:0.5em;font-family:monospace}
 #archive .this{-webkit-border-radius:0.25em;-moz-border-radius:0.25em;-ms-border-radius:0.25em;-o-border-radius:0.25em;border-radius:0.25em;background-color:#ffc;margin-left:0;}
 #archive .this li:last-child{margin-bottom:0}
+
+.section-nav a, .section-nav span {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 8px 12px 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.3), inset 0 1px 1px rgba(255,255,255,.5);
+  background: #777;
+}
+.section-nav a:hover {
+  color: #fff;
+  background: #888;
+}
+.section-nav .left {
+float: left;
+text-align: right;
+}
+.section-nav .right {
+float: right;
+text-align: left;
+}
+.section-nav .center {
+float: center;
+text-align: center;
+}

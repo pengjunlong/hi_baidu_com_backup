@@ -8,112 +8,8 @@
     <link rel="stylesheet" href="/css/master.css" type="text/css" media="screen" charset="utf-8"/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery.jplayer.min.js"></script>
-<script type="text/javascript">
-//<![CDATA[
-
-$(document).ready(function(){
-
-	// Local copy of jQuery selectors, for performance.
-	var	my_jPlayer = $("#jquery_jplayer"),
-		my_trackName = $("#jp_container .track-name"),
-		my_playState = $("#jp_container .play-state"),
-		my_extraPlayInfo = $("#jp_container .extra-play-info");
-
-	// Some options
-	var	opt_play_first = true, // If true, will attempt to auto-play the default track on page loads. No effect on mobile devices, like iOS.
-		opt_auto_play = true, // If true, when a track is selected, it will auto-play.
-		opt_text_playing = "Now playing", // Text when playing
-		opt_text_selected = "Track selected"; // Text when not playing
-
-	// A flag to capture the first track
-	var first_track = true;
-
-	// Change the time format
-	$.jPlayer.timeFormat.padMin = true;
-	$.jPlayer.timeFormat.padSec = true;
-	$.jPlayer.timeFormat.sepMin = ":";
-	$.jPlayer.timeFormat.sepSec = "";
-
-	// Initialize the play state text
-	my_playState.text(opt_text_selected);
-
-	// Instance jPlayer
-	my_jPlayer.jPlayer({
-		ready: function () {
-			$("#jp_container .track-default").click();
-		},
-		timeupdate: function(event) {
-			my_extraPlayInfo.text(parseInt(event.jPlayer.status.currentPercentAbsolute, 10) + "%");
-		},
-		play: function(event) {
-			my_playState.text(opt_text_playing);
-		},
-		pause: function(event) {
-			my_playState.text(opt_text_selected);
-		},
-		ended: function(event) {
-			my_playState.text(opt_text_selected);
-		},
-		swfPath: "../js",
-		cssSelectorAncestor: "#jp_container",
-		supplied: "mp3",
-		wmode: "window"
-	});
-
-	// Create click handlers for the different tracks
-	$("#jp_container .track").click(function(e) {
-		my_trackName.text($(this).text());
-		my_jPlayer.jPlayer("setMedia", {
-			mp3: $(this).attr("href")
-		});
-		if((opt_play_first && first_track) || (opt_auto_play && !first_track)) {
-			my_jPlayer.jPlayer("play");
-		}
-		first_track = false;
-		$(this).blur();
-		return false;
-	});
-});
-//]]>
-
-  </script>
-<style>
-<!--
-
-.demo-container {
-	border: 1px solid #009BE3;
-	padding:0 20px;
-	font-family: "Myriad Pro Regular","Trebuchet MS";
-}
-
-.demo-container a, .demo-container a:link, .demo-container a:visited, .demo-container a:hover, .demo-container a:focus, .demo-container a:active {
-	color: #009BE3;
-}
-
-.demo-container ul {
-	list-style-type:none;
-	padding:0;
-	margin:1em 0;
-	width:100%;
-	overflow:hidden;
-}
-
-.demo-container ul span {
-	color: #A0A600;
-}
-
-.demo-container .control li {
-	float:left;
-	margin-right:1em;
-}
-
-.demo-container p span.track-name {
-	color: #CC0090;
-}
-
--->
-</style>
-
+    <script type="text/javascript" src="/js/text_player.js"></script>
+    <link rel="stylesheet" href="/css/text_player.css" type="text/css" charset="utf-8"/>
   </head>
   <body>
 
@@ -125,7 +21,7 @@ $(document).ready(function(){
       <div id='menu'>
         <ul>
           <li><a href='/'>Home</a></li>
-          <li><a href='/blog.html'>Blog</a></li>
+          <li><a href='/blog/'>Blog</a></li>
           <li><a href='/archives.html'>Archives</a></li>
           <li><a href='/about.html'>About</a></li>
           <li><a href='http://github.com/pengjunlong' target='_blank' rel='me'>GitHub</a></li>
