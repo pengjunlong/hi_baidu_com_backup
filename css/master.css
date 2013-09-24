@@ -277,7 +277,7 @@ a img { border: 0; }
 }
 /* headers */
 
-h1, h2, h3, h4, caption, thead th {
+#header h1, h2, h3, h4, caption, thead th {
   font-family: "Essays 1743", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
   font-weight: normal;
   text-transform: uppercase;
