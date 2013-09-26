@@ -1,54 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+{% include top.html %}
 
-<html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <title>{{ page.title }} - 九头鸟龙</title>
-    <link rel="stylesheet" href="/css/master.css" type="text/css" media="screen" charset="utf-8"/>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.jplayer.min.js"></script>
-    <script type="text/javascript" src="/js/text_player.js"></script>
-    <link rel="stylesheet" href="/css/text_player.css" type="text/css" charset="utf-8"/>
-    <link rel="shortcut icon" href="/fav.ico">
-    <link rel="icon" type="image/x-icon" href="/fav.ico">
-  </head>
-  <body>
-
+<body>
     <div id='wrapper'>
-      <div id='header'>
-        <h1>Life</h1>
-        <h2>was like a box of chocolates</h2>
-      </div>
-      <div id='menu'>
-        <ul>
-          <li><a href='/'>Home</a></li>
-          <li><a href='/blog/'>Blog</a></li>
-          <li><a href='/archives.html'>Archives</a></li>
-          <li><a href='/about.html'>About</a></li>
-          <li><a href='http://github.com/pengjunlong' target='_blank' rel='me'>GitHub</a></li>
-          <li><a href='http://weibo.com/jtnl' target='_blank' rel='me'>Weibo</a></li>
-          <li><a href='http://hi.baidu.com/pengjunlong' target='_blank'>Hi</a></li>
-          <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=357195147&amp;site=qq&amp;menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=1:357195147:49" alt="点此联系我"></a></li>
-        </ul>
-      </div>
-      <div id='content'>
-        {{ content }}
-        <div class='clearfix'></div>
-      </div>
+  {% include header.html %}
+
+  <div id='content'>
+      {{ content }}
+      <div class='clearfix'></div>
+  </div>
     </div>
-    <div id='footer'>
-      Copyright &copy; 2013 九头鸟龙. Hosted by <a href='http://github.com/pengjunlong' target='_blank'>GitHub</a> and powered by <a href='http://github.com/mojombo/jekyll'>Jekyll</a>.
-    </div>
-    <!-- Google Analytics -->
-    <script type="text/javascript">
-        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "https://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-        var pageTracker = _gat._getTracker("UA-43024673-1");
-        pageTracker._trackPageview();
-    </script>
-    <!-- Google Analytics end -->
-  </body>
+
+  {% include footer.html %}
+  {% include analytics.html %}
+
+</body>
 </html>
