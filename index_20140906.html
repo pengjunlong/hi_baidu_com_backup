@@ -1,0 +1,20 @@
+---
+layout: master
+title: 每天锻炼一小时~笑一笑十年少:-)
+---
+
+<div class='home_box' id='home_left'>
+  <h2><a href='/atom.xml' class='float-right'><img src='/img/subscribe-icon.gif' alt='Subscribe'/></a> Latest Blog Post <span class="more">(<a href='/blog/'>More</a>)</span></h2>
+  <div class='post'>
+    <h1><a href='{{site.posts.first.url}}'>{{site.posts.first.title}}</a></h1>
+    <div class='body'>
+      <div id=content class="content mod-cs-content text-content clearfix">
+        {{ site.posts.first.content }}
+        </div>
+    </div>
+    <a href='{{site.posts.first.url}}#disqus_thread'>Comments</a>
+  </div>
+</div>
+<div class='home_box' id='home_right'>
+    {% include jplayer.html %}
+</div>
