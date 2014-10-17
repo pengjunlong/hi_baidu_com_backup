@@ -12,34 +12,18 @@
 <script type='text/javascript'>//<![CDATA[ 
 $(window).load(function(){
 $("#rss-default").rss("http://feed.williamlong.info/").show();
-
-$("#rss-styled").rss("http://feed.williamlong.info/", {
-    limit: 5,
-    layoutTemplate: '<dl class="dl-horizontal">{entries}</dl>',
-    entryTemplate: '<dt><a href="{url}">{title}</a></dt><dd>{shortBodyPlain}[{author}@{date}]</dd>'
-}).show();
-
-$("#rss-metro").rss("http://feed.williamlong.info/", {
-    limit: 4,
-    layoutTemplate: '<span id="entries">{entries}</span>',
-    entryTemplate: '<a href="{url}">{title}</a>|'
-}).show();
 });//]]>  
 </script>
 </head>
 <body>
   <div>
-     <h1>书山有路勤为径</h1>
+     <h1>九头鸟龙-RSS聚合</h1>
     <ul>
-        <li>Project available at <a href="https://github.com/sdepold/jquery-rss" target="jquery-rss">https://github.com/sdepold/jquery-rss</a></li>
-        <li>This demo includes the jQuery plugin from http://sdepold.github.io/jquery-rss/src/jquery.rss.js</li>
+        <li>书山有路勤为径</li>
+        <li>学海无涯苦作舟</li>
     </ul>
-    <h2>Default options</h2>
+    <h2>月光博客</h2>
     <div id="rss-default" class="well" style="display:none;"></div>
-    <h2>Same feed <small>with some custom styling</small></h2>
-    <div id="rss-styled" class="well" style="display:none;"></div>
-    <h2>Metro <small>for a customer</small></h2>
-    <div id="rss-metro" class="well" style="display:none;"></div>
 </div>
 </body>
 </html>
