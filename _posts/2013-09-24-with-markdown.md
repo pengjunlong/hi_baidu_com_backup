@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: with markdown
 time: 2013-09-24 19:01:47
 tags: 好好学习天天向上

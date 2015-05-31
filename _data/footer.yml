@@ -1,0 +1,8 @@
+# Footer navigation links
+
+- title: Archives
+  url: /archives
+- title: RSS
+  url: /atom.xml
+- title: About
+  url: /about

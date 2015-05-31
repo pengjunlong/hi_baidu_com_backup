@@ -1,0 +1,14 @@
+# Site navigation links
+
+- title: 童年
+  url: /my_childhood
+  excerpt: "丝丝香气飘过鼻尖，阵阵清风拂过脸庞"
+  image: childhood.png
+- title: 在人间
+  url: /in_the_world
+  excerpt: "每个世界，都有我的奇思妙想"
+  image: world.png
+- title: 我的大学
+  url: /my_universities
+  excerpt: "真情化为万古长空，聚散成为一朝风月"
+  image: universities.png

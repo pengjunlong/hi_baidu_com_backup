@@ -1,12 +1,8 @@
-<div id='header'>
-    <h1>Life</h1>
-    <h2>was like a box of chocolates</h2>
-</div>
-<div id='menu'>
-    <ul>
-        <li><a href='/'>Home</a></li>
-        <li><a href='/blog/'>Blog</a></li>
-        <li><a href='/archives.html'>Archives</a></li>
-        <li><a href='/about.html'>About</a></li>
-    </ul>
-</div>
+<header id="masthead">
+  <div class="inner-wrap">
+    <a href="{{ site.url }}/" class="site-title">{{ site.title }}</a>
+    <nav role="navigation" class="menu top-menu">
+        {% include navigation.html %}
+    </nav>
+  </div><!-- /.inner-wrap -->
+</header><!-- /.masthead -->
