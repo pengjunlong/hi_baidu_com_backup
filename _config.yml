@@ -24,13 +24,13 @@ gems:
 owner:
   name: 九头鸟龙
   email: junlong666@gmail.com
-  twitter:
+  twitter: junlong666
   google:
     ad-client: 
     ad-slot: 
   bio: 
   avatar: 120x120.jpg # 160x160 px image for author byline
-disqus-shortname: 'pengjunlong'
+  disqus-shortname: 'pengjunlong'
 
 
 exclude: ["lib", "config.rb", ".sass-cache", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "*.sublime-project", "*.sublime-workspace", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "node_modules", "Gruntfile.js", "package.json"]
