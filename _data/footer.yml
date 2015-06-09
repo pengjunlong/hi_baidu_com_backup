@@ -1,5 +1,7 @@
 # Footer navigation links
 
+- title: Index
+  url: /
 - title: Archives
   url: /archives
 - title: RSS
