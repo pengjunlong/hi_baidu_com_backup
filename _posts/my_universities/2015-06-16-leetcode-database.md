@@ -2,7 +2,8 @@
 layout: article
 title: LeetCode Database
 time: 2013-09-24 19:01:47
-tags: 好好学习天天向上
+categories: my_universities in_the_world
+excerpt: 记录在leetcode解决的数据库相关问题，包括问题描述、SQL解答、简要分析
 ---
 
 {% highlight SQL %}
