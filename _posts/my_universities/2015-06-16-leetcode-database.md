@@ -6,7 +6,7 @@ categories: my_universities in_the_world
 excerpt: 记录在leetcode解决的数据库相关问题，包括问题描述、SQL解答、简要分析
 ---
 
-{% highlight SQL %}
+{% highlight sql linenos %}
 # Write your MySQL query statement below
 select d.Name,e.Name,e.Salary
 from Department d,Employee e
@@ -19,7 +19,8 @@ order by d.Id,e.Salary desc
               <p></p><p>
 The <code>Employee</code> table holds all employees. Every employee has an Id, and there is also a column for the department Id.</p>
 
-<pre>+----+-------+--------+--------------+
+{% highlight bash %}
++----+-------+--------+--------------+
 | Id | Name  | Salary | DepartmentId |
 +----+-------+--------+--------------+
 | 1  | Joe   | 70000  | 1            |
@@ -29,7 +30,8 @@ The <code>Employee</code> table holds all employees. Every employee has an Id, a
 | 5  | Janet | 69000  | 1            |
 | 6  | Randy | 85000  | 1            |
 +----+-------+--------+--------------+
-</pre>
+{% endhighlight %}
+
 
 <p>
 The <code>Department</code> table holds all departments of the company.</p>
