@@ -1,7 +1,7 @@
 ---
 layout: archive
 permalink: /
-title: "LIFE WAS LIKE A BOX OF CHOCOLATES"
+title: "Just for Fun"
 ---
 
 <div class="tiles">

@@ -1,7 +1,7 @@
 # Site wide configuration
 
 title: 九头鸟龙
-description: "LIFE WAS LIKE A BOX OF CHOCOLATES"
+description: ""
 logo: 120x120.jpg # 120x120 px default image used for Twitter summary card
 teaser: 400x250.png # 400x250 px default teaser image used in image archive grid
 locale: utf-8
