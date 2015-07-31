@@ -9,6 +9,7 @@ locale: utf-8
 
 # Jekyll configuration
 highlighter: pygments
+markdown: kramdown
 sass:
     sass_dir: _sass
     style: compressed

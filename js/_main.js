@@ -17,4 +17,4 @@ $(document).ready(function(){
 });
 
 // Table of Contents title. Change text to localize
-$("#markdown-toc").prepend("<li><h6>Overview</h6></li>");
+//$("#markdown-toc").prepend("<li><h6>目录</h6></li>");

@@ -15,7 +15,7 @@ excerpt: just for fun
   ?>
 {% endhighlight %}
 
-{% highlight c++ linenos %}
+{% highlight php linenos %}
 {
     cout<<endl;
     cout<<"HAHAHA"<<endl;
