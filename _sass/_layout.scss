@@ -179,13 +179,6 @@
 			.pagination {
 				@include fill-parent;
 			}
-			.page-meta {
-				p{
-					@include font-size(14,no);
-					font-family: $alt-font;
-					color: lighten($black,60);
-				}
-			}
 		}
 	}
 	@at-root {

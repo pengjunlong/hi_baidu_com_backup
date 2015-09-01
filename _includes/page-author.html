@@ -2,10 +2,24 @@
   {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}
 {% endif %}
 
-<div class="author-image">
-	<img src="/images/{{ author.avatar }}" alt="{{ author.name }}">
+<div id="qrcode" class="author-image">
 </div><!-- ./author-image -->
+<script src="/js/qrcode.min.js"></script>
+<script type="text/javascript">
+    var qrcode = new QRCode("qrcode", {
+        text: "{{ page.url | prepend: site.url }}",
+        width: 128,
+        height: 128,
+        colorDark : "#ff0000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+    //new QRCode(document.getElementById("qrcode"), "{{ page.url | prepend: site.url }}");
+</script>
 <div class="author-content">
-	<h3 class="author-name" >Written by {% if author.web %}<a href="{{ author.web }}" itemprop="author">{{ author.name }}</a>{% else %}<span itemprop="author">{{ author.name }}</span>{% endif %}</h3>
+	<h3 class="author-name" >作者： {% if author.web %}<a href="{{ author.web }}" itemprop="author">{{ author.name }}</a>{% else %}<span itemprop="author">{{ author.name }}</span>{% endif %}</h3>
 	<p class="author-bio">{{ author.bio }}</p>
+    {% if page.date %}
+        <p>Updated {% if page.modified %}<time datetime="{{ page.modified | date: "%Y-%m-%dT%H:%M:%SZ" }}" itemprop="dateModified">{{ page.modified | date: "%B %d, %Y" }}</time>{% else %}<time datetime="{{ page.date | date: "%Y-%m-%dT%H:%M:%SZ" }}" itemprop="datePublished">{{ page.date | date: "%B %d, %Y" }}</time></p>{% endif %}
+    {% endif %}
 </div><!-- ./author-content -->
