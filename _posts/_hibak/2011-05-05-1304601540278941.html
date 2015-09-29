@@ -1,0 +1,8 @@
+---
+layout: post
+title: 生成讨厌的验证码_shell
+time: 2011-05-05 21:19
+tags: 好好学习天天向上
+---
+
+<div id=content class="content mod-cs-content text-content clearfix"> <p>&nbsp;1&nbsp;#!/bin/bash<br />&nbsp;2&nbsp;n=6<br />&nbsp;3&nbsp;i=1<br />&nbsp;4&nbsp;seq=(0&nbsp;1&nbsp;2&nbsp;3&nbsp;4&nbsp;5&nbsp;6&nbsp;7&nbsp;8&nbsp;9&nbsp;a b c d e f g h i j k l m n o p q&nbsp;r&nbsp;s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)<br />&nbsp;5&nbsp;len_seq=${#seq[@]}<br />&nbsp;6&nbsp;<br />&nbsp;7&nbsp;while&nbsp;[&nbsp;$i&nbsp;-le&nbsp;$n&nbsp;]<br />&nbsp;8&nbsp;do<br />&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#$RANDOM生成0~2^15之间的数<br />10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#echo $RANDOM<br />11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;random_num[$i]=${seq[((RANDOM%len_seq))]}<br />12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;&quot;i=$i+1&quot;<br />13&nbsp;done<br />14&nbsp;<br />15&nbsp;for&nbsp;j&nbsp;in&nbsp;${random_num[@]}<br />16&nbsp;do<br />17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;-n&nbsp;$j<br />18&nbsp;done<br />19&nbsp;echo<br /></p> </div>

@@ -1,0 +1,8 @@
+---
+layout: post
+title: main主函数执行退出后再执行一段代码
+time: 2010-06-30 20:54
+tags: 好好学习天天向上
+---
+
+<div id=content class="content mod-cs-content text-content clearfix"> #include &lt;stdlib.h&gt;<br />int&nbsp;atexit(void&nbsp;(*function)(void));<br />#include &lt;stdio.h&gt;<br /><br />void&nbsp;fn1(void),fn2(void);<br /><br />int&nbsp;main(void)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atexit(fn1);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atexit(fn2);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(&quot;main\n&quot;);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0;<br />}<br /><br />void&nbsp;fn1(void)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(&quot;after:1\n&quot;);<br />}<br /><br />void&nbsp;fn2(void)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(&quot;after:2\n&quot;);<br />}<br /> </div>
