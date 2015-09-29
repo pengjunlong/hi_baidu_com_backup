@@ -4,8 +4,10 @@ title: Archive
 category_index: archives
 ---
 <section id="archive">
-  <h2>This year's posts</h2>
+  <h2>今年</h2>
 {% for post in site.posts %}
+{% if post.category_index %}
+{% else %}
   {% unless post.next %}
   <ul class="this">
   {% else %}
@@ -18,6 +20,7 @@ category_index: archives
   {% endif %}
   {% endunless %}
     <li><time>{{ post.date | date: "%b %d" }}</time>&mdash;<a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endif %}
 {% endfor %}
   </ul>
 </section>
