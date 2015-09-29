@@ -2,6 +2,7 @@
 layout: article
 title: "批量设置MIUI收音机频道列表"
 categories: in_the_world
+excerpt: 修改sqlite数据
 ---
 
 通过插耳机、打开收音机软件、自动扫描电台，可以得到一系列的频道数据，但频道名称均为“新频道”，
