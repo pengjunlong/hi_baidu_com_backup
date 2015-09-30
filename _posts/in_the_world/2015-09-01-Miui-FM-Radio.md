@@ -113,6 +113,7 @@ excerpt: 修改sqlite数据
 10800 廊坊人民广播电台戏曲曲艺频道
 {% endhighlight %}
 
+实际通过sqlite导出后修改再导入的方式处理
 {% highlight bash linenos %}
 sqlite3 FMRadio.db .dump >radio.sql
 cat 1.csv | while read line; do x=`grep ${line% *} radio.sql`;y=${line#* };echo ${x/新频道/$y}; done | sort >tmp.sql
@@ -120,8 +121,23 @@ cat 1.csv | while read line; do x=`grep ${line% *} radio.sql`;y=${line#* };echo 
 sqlite3 radio.db <radio.sql
 mv radio.db FMRadio.db
 {% endhighlight %}
+
+收音机APP数据文件位置
+
 ![](/images/miui_radio/101429.png)
+
+DB中各表，其中station为电台列表数据
+
 ![](/images/miui_radio/101450.png)
+
+修改后表中数据
+
 ![](/images/miui_radio/101505.png)
+
+再次打开APP得到的电台列表
+
 ![](/images/miui_radio/101520.png)
+
+播放界面，越简单越幸福~
+
 ![](/images/miui_radio/101535.png)
