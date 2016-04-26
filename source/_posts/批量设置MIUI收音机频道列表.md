@@ -123,20 +123,20 @@ mv radio.db FMRadio.db
 
 收音机APP数据文件位置
 
-![](/images/miui_radio/101429.png)
+![](http://ww2.sinaimg.cn/large/4bc2a2bajw1f39tb2aal2j20gm0dmmyk.jpg)
 
 DB中各表，其中station为电台列表数据
 
-![](/images/miui_radio/101450.png)
+![](http://ww1.sinaimg.cn/large/4bc2a2bajw1f39srwytjfj20gk0960v2.jpg)
 
 修改后表中数据
 
-![](/images/miui_radio/101505.png)
+![](http://ww2.sinaimg.cn/large/4bc2a2bajw1f39srxb0wrj20go0s8jyc.jpg)
 
 再次打开APP得到的电台列表
 
-![](/images/miui_radio/101520.png)
+![](http://ww2.sinaimg.cn/large/4bc2a2bajw1f39srxtk0mj20gq0scjti.jpg)
 
 播放界面，越简单越幸福~
 
-![](/images/miui_radio/101535.png)
+![](http://ww1.sinaimg.cn/large/4bc2a2bajw1f39srxxni8j20gm0satbd.jpg)

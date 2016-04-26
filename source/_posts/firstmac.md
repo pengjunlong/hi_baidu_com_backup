@@ -4,4 +4,4 @@ date: 2012-04-02
 tags: xiaonei
 ---
 
-![](/images/xiaonei/firstmac.jpg)
+![](http://ww2.sinaimg.cn/large/4bc2a2bajw1f39srqffsxj20k00cignz.jpg)

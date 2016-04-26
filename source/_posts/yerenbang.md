@@ -4,4 +4,4 @@ date: 2012-06-10
 tags: xiaonei
 ---
 
-![](/images/xiaonei/yerenbang.jpg)
+![](http://ww4.sinaimg.cn/large/4bc2a2bajw1f39srw59ymj20k00b875z.jpg)
