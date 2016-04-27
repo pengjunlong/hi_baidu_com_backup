@@ -70,9 +70,9 @@ scheme: Pisces
 # Social links
 social:
   GitHub: https://github.com/pengjunlong
-  Weibo: http://weibo.com/jtnl
-  qq: http://wpa.qq.com/msgrd?v=3&uin=357195147&site=qq&menu=yes
-  email: mailto:junlong666@gmail.com
+  微博: http://weibo.com/jtnl
+  QQ: http://wpa.qq.com/msgrd?v=3&uin=357195147&site=qq&menu=yes
+  邮箱: mailto:junlong666@gmail.com
   #Others:
 
 # Social Icons
@@ -80,14 +80,22 @@ social_icons:
   enable: true
   # Icon Mappings
   GitHub: github
-  Weibo: weibo
-  qq: qq
-  email: envelope
+  微博: weibo
+  QQ: qq
+  邮箱: envelope
 
 links_title: Links
 links:
-  eg: http://pengjunlong.github.io/
-
+  简历: http://ellekasai.github.io/resumecards/
+  LeetCode: https://leetcode.com/
+  程序员的自我修养: https://leohxj.gitbooks.io/a-programmer-prepares/content/
+  研发技能表: http://blog.knownsec.com/Knownsec_RD_Checklist/
+  开发者头条: http://toutiao.io/
+  极客头条: http://geek.csdn.net/hotest
+  Startup News: http://news.dbanotes.net/
+  深入理解php内核: http://www.php-internals.com/book/
+  Database Performance: https://www.percona.com/blog/
+  数据库内核月报: http://mysql.taobao.org/monthly/
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
