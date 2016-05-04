@@ -96,6 +96,7 @@ links:
   深入理解php内核: http://www.php-internals.com/book/
   Database Performance: https://www.percona.com/blog/
   数据库内核月报: http://mysql.taobao.org/monthly/
+  博客域名: http://www.justforfun.ml/
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
@@ -160,8 +161,8 @@ scroll_to_more: true
 
 # Automatically Excerpt
 auto_excerpt:
-  enable: false
-  length: 150
+  enable: true
+  length: 360
 
 # Use Lato font
 use_font_lato: true
