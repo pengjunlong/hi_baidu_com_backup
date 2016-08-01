@@ -72,4 +72,6 @@ deploy:
   type: git
   repo: git@github.com:pengjunlong/pengjunlong.github.io.git
   branch: master
-  message: 更新博客：{{ now('YYYY-MM-DD HH:mm:ss') }}
+  ## message: 更新博客：{{ now('YYYY-MM-DD HH:mm:ss') }}
+admin:
+  deployCommand: './hexo-deploy.sh'
