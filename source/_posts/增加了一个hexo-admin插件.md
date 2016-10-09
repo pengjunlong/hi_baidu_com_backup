@@ -17,3 +17,11 @@ Edit your content in style with this integrating blogging environment.
 
 ![截图1](https://raw.githubusercontent.com/jaredly/hexo-admin/master/docs/pasted-0.png)
 ![截图2](https://raw.githubusercontent.com/jaredly/hexo-admin/master/docs/pasted-1.png)
+
+具体添加插件步骤
+
+```bash
+npm install --save hexo-admin
+hexo server -d
+open http://localhost:4000/admin/
+```
