@@ -14,9 +14,6 @@
 </div>
 
 <div class="theme-info">
-  {{ __('footer.theme') }} -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.{{ theme.scheme }}
-  </a>
+  {{ __('footer.theme', '<a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT</a>') }}
 </div>
 {% endif %}

@@ -14,7 +14,7 @@ keywords: "Hexo, NexT"
 rss:
 
 # Specify the date when the site was setup
-#since: 2015
+since: 2012
 
 # Footer `powered-by` and `theme-info` copyright
 copyright: true
@@ -32,8 +32,8 @@ canonical: true
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  #categories: /categories
-  #about: /about
+  categories: /categories
+  about: /about
   archives: /archives
   tags: /tags
   #sitemap: /sitemap.xml
@@ -65,9 +65,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+#scheme: Muse
 #scheme: Mist
-#scheme: Pisces
+scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -129,6 +129,12 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 #social:
   #LinkLabel: Link
+social:
+  GitHub: https://github.com/pengjunlong
+  邮箱: mailto:junlong666@gmail.com
+  微博: http://weibo.com/jtnl
+  QQ: http://wpa.qq.com/msgrd?v=3&uin=357195147&site=qq&menu=yes
+  #Others:
 
 
 # Social Links Icons
@@ -143,6 +149,9 @@ social_icons:
   GitHub: github
   Twitter: twitter
   Weibo: weibo
+  微博: weibo
+  QQ: qq
+  邮箱: envelope
 
 
 # Sidebar Avatar
@@ -183,11 +192,23 @@ sidebar:
 
 
 # Blogrolls
-#links_title: Links
+links_title: 世界那么大
 #links_layout: block
 #links_layout: inline
 #links:
   #Title: http://example.com/
+links:
+  简历: http://ellekasai.github.io/resumecards/
+  LeetCode: https://leetcode.com/
+  程序员的自我修养: https://leohxj.gitbooks.io/a-programmer-prepares/content/
+  研发技能表: http://blog.knownsec.com/Knownsec_RD_Checklist/
+  开发者头条: http://toutiao.io/
+  极客头条: http://geek.csdn.net/hotest
+  Startup News: http://news.dbanotes.net/
+  深入理解php内核: http://www.php-internals.com/book/
+  DBPerformance: https://www.percona.com/blog/
+  数据库内核月报: http://mysql.taobao.org/monthly/
+  博客域名: http://www.justforfun.ml/
 
 
 # ---------------------------------------------------------------
@@ -257,13 +278,13 @@ mathjax:
 #swiftype_key:
 
 # Baidu Analytics ID
-#baidu_analytics:
+baidu_analytics: cf5f20cc85a004b902062bf157b3e3de
 
 # Duoshuo ShortName
-#duoshuo_shortname:
+duoshuo_shortname: pengjunlong
 
 # Disqus
-#disqus_shortname:
+disqus_shortname: pengjunlong
 
 # Hypercomments
 #hypercomments_id:
@@ -289,7 +310,7 @@ mathjax:
 
 
 # Google Analytics
-#google_analytics:
+google_analytics: UA-43024673-1
 
 # CNZZ count
 #cnzz_siteid:
