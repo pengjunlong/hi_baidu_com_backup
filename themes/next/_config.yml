@@ -280,9 +280,6 @@ mathjax:
 # Baidu Analytics ID
 baidu_analytics: cf5f20cc85a004b902062bf157b3e3de
 
-# Duoshuo ShortName
-duoshuo_shortname: pengjunlong
-
 # Disqus
 disqus_shortname: pengjunlong
 
@@ -301,9 +298,6 @@ disqus_shortname: pengjunlong
 # Warning: JiaThis does not support https.
 #add_this_id:
 
-# Share
-#duoshuo_share: true
-
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
 #google_site_verification:
@@ -318,16 +312,6 @@ google_analytics: UA-43024673-1
 # Application Insights
 # See https://azure.microsoft.com/en-us/services/application-insights/
 # application_insights:
-
-# Make duoshuo show UA
-# user_id must NOT be null when admin_enable is true!
-# you can visit http://dev.duoshuo.com get duoshuo user id.
-duoshuo_info:
-  ua_enable: true
-  admin_enable: false
-  user_id: 0
-  #admin_nickname: Author
-
 
 # Facebook SDK Support.
 # https://github.com/iissnan/hexo-theme-next/pull/410
