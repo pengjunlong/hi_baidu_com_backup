@@ -1,7 +1,7 @@
 <div class="copyright" >
+<span class="post-count">总字数:{{ totalcount(site, '0,0.0a') }}</span>
   {% set current = date(Date.now(), "YYYY") %}
-  &copy; {% if theme.since and theme.since != current %} {{ theme.since }} - {% endif %}
-  <span itemprop="copyrightYear">{{ current }}</span>
+  <span itemprop="copyrightYear">&copy; {{ theme.since }}-{{ current }}</span>
   <span class="with-love">
     <i class="fa fa-{{ theme.authoricon }}"></i>
   </span>
