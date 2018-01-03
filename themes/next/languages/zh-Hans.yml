@@ -46,8 +46,8 @@ page:
   tags: 标签
 
 footer:
-  powered: "Powered by GitHub and %s"
-  theme: "Theme by %s "
+  powered: "由 %s 强力驱动"
+  theme: 主题
 
 counter:
   tag_cloud:
@@ -94,3 +94,5 @@ reward:
   wechatpay: 微信支付
   alipay: 支付宝
   bitcoin: 比特币
+
+gitmentbutton: 显示 Gitment 评论

@@ -45,21 +45,19 @@
                 {{ post.title or post.link }}
                 <i class="fa fa-external-link"></i>
               </a>
-            {% else %}
-              {% if is_index %}
+            {% else %}{#
+            #}{% if is_index %}
                 {% if post.sticky > 0 %}
                   <span class="post-sticky-flag" title="{{ __('post.sticky') }}">
                     <i class="fa fa-thumb-tack"></i>
                   </span>
                 {% endif %}
-                <a class="post-title-link" href="{{ url_for(post.path) }}" itemprop="url">
-                  {{ post.title | default(__('post.untitled'))}}
-                </a>
-              {% else %}
-                {{ post.title }}
-              {% endif %}
-            {% endif %}
-          </{% if theme.seo %}h2{% else %}h1{% endif %}>
+                <a class="post-title-link" href="{{ url_for(post.path) }}" itemprop="url">{#
+                #}{{ post.title | default(__('post.untitled'))}}{#
+              #}</a>{#
+            #}{% else %}{{ post.title }}{% endif %}{#
+          #}{% endif %}{#
+        #}</{% if theme.seo %}h2{% else %}h1{% endif %}>
         {% endif %}
 
         <div class="post-meta">
@@ -118,9 +116,6 @@
               {% endfor %}
             </span>
           {% endif %}
-
-          <span class="post-count">字数:{{ wordcount(post.content) }}</span>
-          <span class="post-count">大约需要{{ min2read(post.content) }}分钟</span>
 
           {% if post.comments %}
             {% if (theme.duoshuo and theme.duoshuo.shortname) or theme.duoshuo_shortname %}
@@ -181,6 +176,16 @@
                   <span id="url::{{ post.permalink }}" class="cy_cmt_count" data-xid="{{ post.path }}" itemprop="commentsCount" ></span>
                 </a>
               {% endif %}
+            {% elseif is_post() and theme.gitment.enable and theme.gitment.mint and theme.gitment.count %}
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="{{ url_for(post.path) }}#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="{{ url_for(post.path) }}" itemprop="commentsCount"></span>
+                </a>
+              </span>
             {% endif %}
           {% endif %}
 
@@ -208,7 +213,9 @@
           {% if theme.post_wordcount.wordcount or theme.post_wordcount.min2read %}
             <div class="post-wordcount">
               {% if theme.post_wordcount.wordcount %}
-                <span class="post-meta-divider">|</span>
+                {% if not theme.post_wordcount.separated_meta %}
+                  <span class="post-meta-divider">|</span>
+                {% endif %}
                 <span class="post-meta-item-icon">
                   <i class="fa fa-file-word-o"></i>
                 </span>
@@ -345,6 +352,14 @@
       {% endif %}
 
       {% if not is_index %}
+      {% if theme.rating.enable or (theme.vkontakte_api.enable and theme.vkontakte_api.like) or (theme.facebook_sdk.enable and theme.facebook_sdk.like_button) or (theme.needmoreshare2.enable and theme.needmoreshare2.postbottom.enable) %}
+        <div class="post-widgets">
+        {% if theme.rating.enable %}
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        {% endif %}
+
         {% if (theme.vkontakte_api.enable and theme.vkontakte_api.like) or (theme.facebook_sdk.enable and theme.facebook_sdk.like_button) %}
           <div class="social-like">
             {% if theme.vkontakte_api.enable and theme.vkontakte_api.like %}
@@ -360,6 +375,19 @@
             {% endif %}
           </div>
         {% endif %}
+
+        {% if theme.needmoreshare2.enable and theme.needmoreshare2.postbottom.enable %}
+          {% if (theme.vkontakte_api.enable and theme.vkontakte_api.like) or (theme.facebook_sdk.enable and theme.facebook_sdk.like_button) %}
+            <span class="post-meta-divider">|</span>
+          {% endif %}
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        {% endif %}
+        </div>
+      {% endif %}
       {% endif %}
 
       {% if not is_index and (post.prev or post.next) %}
