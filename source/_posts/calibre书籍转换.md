@@ -7,6 +7,8 @@ tags:
 
 <script src="https://gist.github.com/pengjunlong/267c8f9a5856ad48cb54c2a878c8d37c.js"></script>
 
+<!-- more -->
+
 # Kafka设计解析
 
 <script src="https://gist.github.com/pengjunlong/66d1b5d3a06cfaba872d03508eef863d.js"></script>

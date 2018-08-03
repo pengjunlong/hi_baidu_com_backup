@@ -13,6 +13,8 @@ https://github.com/jaredly/hexo-admin
 
 Edit your content in style with this integrating blogging environment.
 
+<!-- more -->
+
 看着效果不错，应该比命令行new直观点
 
 ![截图1](https://raw.githubusercontent.com/jaredly/hexo-admin/master/docs/pasted-0.png)

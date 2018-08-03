@@ -11,6 +11,8 @@ ps：吐槽下，貌似leetcode升级服务器硬件/软件了，同样的SQL不
 ### 合并两个表
 表Person, PersonId为主键
 
+<!-- more -->
+
 ```bash
 +-------------+---------+
 | Column Name | Type    |

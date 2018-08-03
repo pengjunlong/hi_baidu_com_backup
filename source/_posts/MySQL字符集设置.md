@@ -5,6 +5,8 @@ tags: database
 ---
 set names影响下面3个字符集
 
+<!-- more -->
+
 ```bash
 mysql> show variables like "character_set%";
 +--------------------------+------------------------------------------------------+

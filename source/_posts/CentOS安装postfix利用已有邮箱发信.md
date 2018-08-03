@@ -6,6 +6,8 @@ tags:
 ### 卸载sendmail并安装postfix+mailx
 <script src="https://gist.github.com/pengjunlong/28d8fc2419cff25078bb72bffc7dd0ee.js"></script>
 
+<!-- more -->
+
 ### 配置SMTP信息
 <script src="https://gist.github.com/pengjunlong/81e82b01b007e491462dc65b9debf2e1.js"></script>
 

@@ -12,6 +12,8 @@ date: 2015-07-28 06:53:01
 cat words.txt | tr ' ' '\n' | grep -v "^$" | sort | uniq -c | awk '{print $2,$1}' | sort -nrk2
 ```
 
+<!-- more -->
+
 ### 有效的电话号码
 - 文件file.txt中包含一些电话号码（每行一个），写一个一行的shell脚本输出所有有效的电话号码
 - 假设有效的电话号码只有两种格式：

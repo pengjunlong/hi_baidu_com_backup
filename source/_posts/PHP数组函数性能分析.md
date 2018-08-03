@@ -9,6 +9,8 @@ categories:
 
 存在所有PHP内置函数的理论（或实际）时间复杂度列表吗？
 
+<!-- more -->
+
 Since it doesn't seem like anyone has done this before I thought it'd be good idea to have it for reference somewhere. I've gone though and either via benchmark or code-skimming to characterize the array_* functions. I've tried to put the more interesting Big-O near the top. This list is not complete.
 
 Note: All the Big-O where calculated assuming a hash lookup is O(1) even though it's really O(n). The coefficient of the n is so low, the ram overhead of storing a large enough array would hurt you before the characteristics of lookup Big-O would start taking effect. For example the difference between a call to array_key_exists at N=1 and N=1,000,000 is ~50% time increase.
