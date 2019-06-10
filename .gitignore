@@ -6,3 +6,5 @@ node_modules/
 public/
 themes/
 .deploy*/
+_admin-config.yml
+package-lock.json
