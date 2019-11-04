@@ -12,6 +12,7 @@ yum remove sendmail
 #安装postfix mailx和sasl需要的包
 yum install postfix mailx cyrus-sasl-plain
 ```
+<!-- more -->
 
 ### 配置SMTP信息
 ```bash

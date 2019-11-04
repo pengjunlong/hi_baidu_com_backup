@@ -10,6 +10,8 @@ tags:
 * Weapon(Zookeeper/ActiveMQ/Ant/Maven...)
 * Server(Nginx/Resin/JBoss/Apache/Jetty...)
 
+<!-- more -->
+
 #### Architecture Design
 * Distributed System(RMI/RESTful/ICE...)
 * NoSQL(memcached/redis/mongodb...)

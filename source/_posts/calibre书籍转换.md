@@ -49,6 +49,9 @@ class DesignPattern(BasicNewsRecipe):
 
 ```
 
+<!-- more -->
+
+
 # Kafka设计解析
 
 ```python
