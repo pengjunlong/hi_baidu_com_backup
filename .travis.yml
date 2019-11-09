@@ -1,4 +1,6 @@
 sudo: false
+before_install:
+  - export TZ=Asia/Shanghai
 language: node_js
 node_js:
   - 10 # use nodejs v10 LTS
