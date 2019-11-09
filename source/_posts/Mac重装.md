@@ -1,7 +1,7 @@
 title: Mac重装系统
 author: 九头鸟龙
-tags: []
-categories: []
+tags: [折腾,Mac,常用软件快速安装]
+categories: 我的大学
 date: 2016-11-15 17:33:00
 ---
 # 关于备份

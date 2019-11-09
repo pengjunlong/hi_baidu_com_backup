@@ -1,12 +1,10 @@
 title: 增加了一个hexo-admin插件
 author: 九头鸟龙
-tags:
-  - hexo
-categories:
-  - 小tip
-  - ''
+tags: [hexo技巧,写博客插件,用IDEA了]
+categories: 我的大学
 date: 2016-08-01 19:48:00
 ---
+
 https://hexo.io/plugins/
 
 https://github.com/jaredly/hexo-admin

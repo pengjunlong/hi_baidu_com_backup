@@ -2,10 +2,8 @@
 title: 十个有效代码审查的建议
 date: 2019-11-06 20:04:06
 description: 代码审查很重要，这里给出一些建议
-categories: 软件开发
+categories: 我的大学
 tags: [代码质量,最佳实践,建议] 
-toc: 
-feature: 
 ---
 
 > https://www.evoketechnologies.com/blog/simple-effective-code-review-tips/

@@ -1,7 +1,8 @@
 title: CentOS安装postfix利用已有邮箱发信
 author: 九头鸟龙
 date: 2017-11-02 15:44:46
-tags:
+tags: [CentOS,postfix]
+categories: 我的大学
 ---
 ### 卸载sendmail并安装postfix+mailx
 ```bash

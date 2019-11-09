@@ -1,5 +1,6 @@
 title: LeetCode Shell
-tags: leetcode
+tags: [leetcode,shell,刷题]
+categories: 我的大学
 date: 2015-07-28 06:53:01
 ---
 [问题来源](https://leetcode.com/problemset/shell/)

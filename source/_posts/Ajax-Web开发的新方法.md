@@ -1,8 +1,8 @@
 ---
 title: 'Ajax:Web开发的新方法'
 date: 2016-04-27 19:31:14
-tags:
-categories:
+tags: [翻译,Ajax,持之以恒]
+categories: 我的大学
 ---
 
 [Ajax: A New Approach to Web Applications](http://adaptivepath.org/ideas/ajax-new-approach-web-applications/)

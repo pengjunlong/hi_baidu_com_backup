@@ -1,7 +1,8 @@
 ---
 title: MySQL字符集设置
 date: 2015-10-29 06:58:47
-tags: database
+tags: [database,MySQL字符集]
+categories: 我的大学
 ---
 set names影响下面3个字符集
 

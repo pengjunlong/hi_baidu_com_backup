@@ -1,6 +1,6 @@
 title: LeetCode Database
-tags: leetcode
-categories: 学习
+tags: [leetcode,SQL,刷题]
+categories: 我的大学
 date: 2015-06-16 06:37:02
 ---
 [问题来源](https://leetcode.com/problemset/database/)

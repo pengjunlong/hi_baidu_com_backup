@@ -2,10 +2,8 @@
 title: 代码审查的检查项
 date: 2019-11-06 20:36:06
 description: 代码审查到底看哪些东西呢
-categories: 代码开发
+categories: 我的大学
 tags: [checklist,流程规范,效率] 
-toc: 
-feature: 
 ---
 > https://www.evoketechnologies.com/blog/code-review-checklist-perform-effective-code-reviews/
 

@@ -1,7 +1,8 @@
 ---
-title: mysql-replication
+title: MySQL主从复制
 date: 2015-11-08 20:03:49
-tags: MySQL学习
+tags: [MySQL,主从复制,不会是翻译的吧]
+categories: 我的大学
 ---
 
 复制可以让数据从一个MySQL服务器（主库）复制到一个或多个MySQL服务器（从库）。复制默认是异步的，从库不需要一直连在主库上来接收主库的更新。通过不同配置，你可以复制所有DB、想要的部分DB、或者仅复制DB中选定的表。

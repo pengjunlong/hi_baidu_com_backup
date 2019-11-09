@@ -1,7 +1,8 @@
 title: calibre书籍转换
 author: 九头鸟龙
 date: 2017-10-10 11:01:29
-tags:
+tags: [calibre,电子书,python]
+categories: 我的大学
 ---
 # Android官方培训课程
 
