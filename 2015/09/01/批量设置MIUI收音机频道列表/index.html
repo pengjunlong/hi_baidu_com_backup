@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://github.githubassets.com/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://github.githubassets.com/favicon.ico">
+  <link rel="mask-icon" href="https://github.githubassets.com/favicon.ico" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Just For Fun" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="通过插耳机、打开收音机软件、自动扫描电台，可以得到一系列的频道数据，但频道名称均为“新频道”， 123456789101112131415161718192021222324252627282918,新频道,8870,019,新频道,9000,020,新频道,9050,021,新频道,9080,022,新频道,9100,023,新频道,9150,024,新频道,9190,025,新频道,9290,">
+<meta name="keywords" content="sqlite,FM收音机,手机APP配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="批量设置MIUI收音机频道列表">
+<meta property="og:url" content="http://pengjunlong.github.com/2015/09/01/批量设置MIUI收音机频道列表/index.html">
+<meta property="og:site_name" content="Just For Fun">
+<meta property="og:description" content="通过插耳机、打开收音机软件、自动扫描电台，可以得到一系列的频道数据，但频道名称均为“新频道”， 123456789101112131415161718192021222324252627282918,新频道,8870,019,新频道,9000,020,新频道,9050,021,新频道,9080,022,新频道,9100,023,新频道,9150,024,新频道,9190,025,新频道,9290,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/4bc2a2bajw1f39tb2aal2j20gm0dmmyk.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/4bc2a2bajw1f39srwytjfj20gk0960v2.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/4bc2a2bajw1f39srxb0wrj20go0s8jyc.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/4bc2a2bajw1f39srxtk0mj20gq0scjti.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/4bc2a2bajw1f39srxxni8j20gm0satbd.jpg">
+<meta property="og:updated_time" content="2019-12-17T10:10:25.187Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="批量设置MIUI收音机频道列表">
+<meta name="twitter:description" content="通过插耳机、打开收音机软件、自动扫描电台，可以得到一系列的频道数据，但频道名称均为“新频道”， 123456789101112131415161718192021222324252627282918,新频道,8870,019,新频道,9000,020,新频道,9050,021,新频道,9080,022,新频道,9100,023,新频道,9150,024,新频道,9190,025,新频道,9290,">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/4bc2a2bajw1f39tb2aal2j20gm0dmmyk.jpg">
+
+<link rel="canonical" href="http://pengjunlong.github.com/2015/09/01/批量设置MIUI收音机频道列表/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>批量设置MIUI收音机频道列表 | Just For Fun</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43024673-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-43024673-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?39df86b6077363a57a30b08fc66586c2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Just For Fun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://pengjunlong.github.com/2015/09/01/批量设置MIUI收音机频道列表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/1436509?v=3&s=460">
+      <meta itemprop="name" content="九头鸟龙">
+      <meta itemprop="description" content="每天锻炼一小时～笑一笑十年少 :-)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Just For Fun">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          批量设置MIUI收音机频道列表
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2015-09-01 07:00:50" itemprop="dateCreated datePublished" datetime="2015-09-01T07:00:50+08:00">2015-09-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-17 18:10:25" itemprop="dateModified" datetime="2019-12-17T18:10:25+08:00">2019-12-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/我的大学/" itemprop="url" rel="index">
+                    <span itemprop="name">我的大学</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2015/09/01/批量设置MIUI收音机频道列表/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/01/批量设置MIUI收音机频道列表/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>通过插耳机、打开收音机软件、自动扫描电台，可以得到一系列的频道数据，但频道名称均为“新频道”，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">18,新频道,8870,0</span><br><span class="line">19,新频道,9000,0</span><br><span class="line">20,新频道,9050,0</span><br><span class="line">21,新频道,9080,0</span><br><span class="line">22,新频道,9100,0</span><br><span class="line">23,新频道,9150,0</span><br><span class="line">24,新频道,9190,0</span><br><span class="line">25,新频道,9290,0</span><br><span class="line">26,新频道,9380,0</span><br><span class="line">27,新频道,9450,0</span><br><span class="line">28,新频道,9480,0</span><br><span class="line">29,新频道,9610,0</span><br><span class="line">30,新频道,9660,0</span><br><span class="line">31,新频道,9680,0</span><br><span class="line">32,新频道,9740,0</span><br><span class="line">33,新频道,9930,0</span><br><span class="line">34,新频道,9960,0</span><br><span class="line">35,新频道,10060,0</span><br><span class="line">36,新频道,10180,0</span><br><span class="line">37,新频道,10250,0</span><br><span class="line">38,新频道,10310,0</span><br><span class="line">39,新频道,10390,0</span><br><span class="line">40,新频道,10520,0</span><br><span class="line">41,新频道,10610,0</span><br><span class="line">42,新频道,10660,0</span><br><span class="line">43,新频道,10730,0</span><br><span class="line">44,新频道,8760,0</span><br><span class="line">45,新频道,8800,0</span><br><span class="line">46,呵呵,8810,1</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://tieba.baidu.com/p/1176987638" target="_blank" rel="noopener">网上找到当地调频频率-频道名称对应数据</a></p>
+<p>整理得到</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">8760 北京人民广播电台文艺广播</span><br><span class="line">8780 天津娱乐调频</span><br><span class="line">8810 河北音乐广播自在调频</span><br><span class="line">8870 中国国际广播电台CRIHITFM</span><br><span class="line">8920 平谷人民广播电台</span><br><span class="line">8960 旅游时尚广播HOTRADIO</span><br><span class="line">9000 中央人民广播电台音乐之声</span><br><span class="line">9050 中国国际广播电台环球资讯广播</span><br><span class="line">9080 河北经济广播电台</span><br><span class="line">9110 天津生活台</span><br><span class="line">9150 中国国际广播电台EASYFM</span><br><span class="line">9190 河北交通台</span><br><span class="line">9200 天津滨海</span><br><span class="line">9250 中央台音乐之声(天津转播)</span><br><span class="line">9280 延庆人民广播电台</span><br><span class="line">9290 顺义人民广播电台</span><br><span class="line">9320 中央台中国之声(唐山转播)</span><br><span class="line">9350 河北音乐广播自在调频（廊坊转播）</span><br><span class="line">9380 承德人民广播电台新闻台</span><br><span class="line">9410 密云人民广播电台</span><br><span class="line">9430 武清人民广播电台</span><br><span class="line">9450 保定燕赵之声</span><br><span class="line">9470 河北文艺城区及东南部地区</span><br><span class="line">9480 河北文艺广播电台</span><br><span class="line">9510 河北廊坊人民广播电台（旅游时尚广播）新闻台</span><br><span class="line">9570 大厂人民广播电台</span><br><span class="line">9600 宝坻广播评书频道</span><br><span class="line">9620 文安人民广播电台</span><br><span class="line">9630 健康100关爱调频</span><br><span class="line">9660 中央人民广播电台经济之声</span><br><span class="line">9720 天津新闻台</span><br><span class="line">9740 北京人民广播电台音乐广播</span><br><span class="line">9800 中央台经济之声(天津转播)</span><br><span class="line">9840 丰润人民广播电台</span><br><span class="line">9860 大兴人民广播电台阳光调频</span><br><span class="line">9860 大兴人民广播电台</span><br><span class="line">9900 天津人民广播电台音乐台</span><br><span class="line">9930 承德（奇经健康百问）</span><br><span class="line">9960 河北固安广播</span><br><span class="line">9980 宁河人民广播电台</span><br><span class="line">10000 关爱调频</span><br><span class="line">10030 廊坊人民广播电台交通长书频道</span><br><span class="line">10060 北京人民广播电台新闻广播</span><br><span class="line">10070 蓟县人民广播电台</span><br><span class="line">10080 张家口新闻</span><br><span class="line">10100 张家口人民广播电台</span><br><span class="line">10110 玉田人民广播电台</span><br><span class="line">10130 怀柔人民广播电台</span><br><span class="line">10140 天津经济台</span><br><span class="line">10180 中央人民广播电台都市之声</span><br><span class="line">10200 唐山交通文艺台</span><br><span class="line">10250 北京人民广播电台体育广播</span><br><span class="line">10260 高碑店人民广播电台</span><br><span class="line">10290 中央台中国之声(天津转播)</span><br><span class="line">10310 昌平人民广播电台</span><br><span class="line">10360 张家口人民广播电台大地之声</span><br><span class="line">10390 北京人民广播电台交通广播</span><br><span class="line">10460 天津文艺台</span><br><span class="line">10520 河北人民广播电台新闻台</span><br><span class="line">10550 香河长书频道</span><br><span class="line">10550 三河人民广播电台</span><br><span class="line">10580 承德交通文艺台</span><br><span class="line">10610 中央人民广播电台中国之声</span><br><span class="line">10660 中央人民广播电台文艺之声</span><br><span class="line">10680 天津人民广播电台交通台</span><br><span class="line">10700 房山人民广播电台</span><br><span class="line">10730 北京人民广播电台城市管理广播</span><br><span class="line">10770 通州人民广播电台京东调频</span><br><span class="line">10800 廊坊人民广播电台戏曲曲艺频道</span><br></pre></td></tr></table></figure>
+
+<p>实际通过sqlite导出后修改再导入的方式处理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sqlite3 FMRadio.db .dump &gt;radio.sql</span><br><span class="line">cat 1.csv | <span class="keyword">while</span> <span class="built_in">read</span> line; <span class="keyword">do</span> x=`grep <span class="variable">$&#123;line% *&#125;</span> radio.sql`;y=<span class="variable">$&#123;line#* &#125;</span>;<span class="built_in">echo</span> <span class="variable">$&#123;x/新频道/$y&#125;</span>; <span class="keyword">done</span> | sort &gt;tmp.sql</span><br><span class="line"><span class="comment">#将tmp.sql替换radio.sql中相关insert语句，实现频道名称的替换</span></span><br><span class="line">sqlite3 radio.db &lt;radio.sql</span><br><span class="line">mv radio.db FMRadio.db</span><br></pre></td></tr></table></figure>
+
+<p>收音机APP数据文件位置</p>
+<p><img src="http://ww2.sinaimg.cn/large/4bc2a2bajw1f39tb2aal2j20gm0dmmyk.jpg" alt></p>
+<p>DB中各表，其中station为电台列表数据</p>
+<p><img src="http://ww1.sinaimg.cn/large/4bc2a2bajw1f39srwytjfj20gk0960v2.jpg" alt></p>
+<p>修改后表中数据</p>
+<p><img src="http://ww2.sinaimg.cn/large/4bc2a2bajw1f39srxb0wrj20go0s8jyc.jpg" alt></p>
+<p>再次打开APP得到的电台列表</p>
+<p><img src="http://ww2.sinaimg.cn/large/4bc2a2bajw1f39srxtk0mj20gq0scjti.jpg" alt></p>
+<p>播放界面，越简单越幸福~</p>
+<p><img src="http://ww1.sinaimg.cn/large/4bc2a2bajw1f39srxxni8j20gm0satbd.jpg" alt></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/sqlite/" rel="tag"># sqlite</a>
+              <a href="/tags/FM收音机/" rel="tag"># FM收音机</a>
+              <a href="/tags/手机APP配置/" rel="tag"># 手机APP配置</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2015/07/28/LeetCode-Shell/" rel="next" title="LeetCode Shell">
+                  <i class="fa fa-chevron-left"></i> LeetCode Shell
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2015/10/29/MySQL字符集设置/" rel="prev" title="MySQL字符集设置">
+                  MySQL字符集设置 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="九头鸟龙" src="https://avatars0.githubusercontent.com/u/1436509?v=3&s=460">
+  <p class="site-author-name" itemprop="name">九头鸟龙</p>
+  <div class="site-description" itemprop="description">每天锻炼一小时～笑一笑十年少 :-)</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/pengjunlong" title="GitHub &rarr; https://github.com/pengjunlong" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:junlong666@gmail.com" title="E-Mail &rarr; mailto:junlong666@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=357195147&site=qq&menu=yes" title="QQ &rarr; http://wpa.qq.com/msgrd?v=3&uin=357195147&site=qq&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">九头鸟龙</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://pengjunlong.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "http://pengjunlong.github.com/2015/09/01/批量设置MIUI收音机频道列表/",
+            identifier: "2015/09/01/批量设置MIUI收音机频道列表/",
+            title: "批量设置MIUI收音机频道列表"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://pengjunlong.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    window.addEventListener('load', loadComments, false);
+</script>
+
+</body>
+</html>

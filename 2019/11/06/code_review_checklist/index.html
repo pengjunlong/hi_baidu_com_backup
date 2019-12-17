@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://github.githubassets.com/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://github.githubassets.com/favicon.ico">
+  <link rel="mask-icon" href="https://github.githubassets.com/favicon.ico" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Just For Fun" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="代码审查到底看哪些东西呢">
+<meta name="keywords" content="checklist,流程规范,效率">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码审查的检查项">
+<meta property="og:url" content="http://pengjunlong.github.com/2019/11/06/code_review_checklist/index.html">
+<meta property="og:site_name" content="Just For Fun">
+<meta property="og:description" content="代码审查到底看哪些东西呢">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://pengjunlong.github.com/2019/11/06/code_review_checklist/91b1df61.png">
+<meta property="og:image" content="http://pengjunlong.github.com/2019/11/06/code_review_checklist/95021398.png">
+<meta property="og:updated_time" content="2019-12-17T10:10:25.187Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="代码审查的检查项">
+<meta name="twitter:description" content="代码审查到底看哪些东西呢">
+<meta name="twitter:image" content="http://pengjunlong.github.com/2019/11/06/code_review_checklist/91b1df61.png">
+
+<link rel="canonical" href="http://pengjunlong.github.com/2019/11/06/code_review_checklist/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>代码审查的检查项 | Just For Fun</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43024673-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-43024673-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?39df86b6077363a57a30b08fc66586c2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Just For Fun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://pengjunlong.github.com/2019/11/06/code_review_checklist/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/1436509?v=3&s=460">
+      <meta itemprop="name" content="九头鸟龙">
+      <meta itemprop="description" content="每天锻炼一小时～笑一笑十年少 :-)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Just For Fun">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          代码审查的检查项
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-06 20:36:06" itemprop="dateCreated datePublished" datetime="2019-11-06T20:36:06+08:00">2019-11-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-17 18:10:25" itemprop="dateModified" datetime="2019-12-17T18:10:25+08:00">2019-12-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/我的大学/" itemprop="url" rel="index">
+                    <span itemprop="name">我的大学</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/06/code_review_checklist/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/06/code_review_checklist/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <div class="post-description">代码审查到底看哪些东西呢</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p><a href="https://www.evoketechnologies.com/blog/code-review-checklist-perform-effective-code-reviews/" target="_blank" rel="noopener">https://www.evoketechnologies.com/blog/code-review-checklist-perform-effective-code-reviews/</a></p>
+</blockquote>
+<p>In my previous blog post, we discussed about “10 Simple Code Review Tips for Effective Code Reviews”. Now, let’s take this topic further and explore the code review checklist, which would help to perform effective code reviews to deliver best quality software.<br><img src="/2019/11/06/code_review_checklist/91b1df61.png" alt></p>
+<p>This code review checklist also helps the code reviewers and software developers (during self code review) to gain expertise in the code review process, as these points are easy to remember and follow during the code review process. </p>
+<p>Let’s first begin with the basic code review checklist and later move on to the detailed code review checklist. </p>
+<a id="more"></a>
+<h3 id="Basic-Code-Review-Checklist"><a href="#Basic-Code-Review-Checklist" class="headerlink" title="Basic Code Review Checklist"></a>Basic Code Review Checklist</h3><p>Let’s discuss about the basic code review checklist, which can be very handy if you are a beginner in code reviews and/or during initial code reviews.</p>
+<p>While reviewing the code, ask yourself the following basic questions:</p>
+<ul>
+<li>Am I able to understand the code easily?</li>
+<li>Is the code written following the coding standards/guidelines?</li>
+<li>Is the same code duplicated more than twice?</li>
+<li>Can I unit test / debug the code easily to find the root cause?</li>
+<li>Is this function or class too big? If yes, is the function or class having too many responsibilities?</li>
+<li>If you feel that the answer is not satisfactory to any of the above questions, then you can suggest/recommend code changes.</li>
+</ul>
+<h3 id="Detailed-Code-Review-Checklist"><a href="#Detailed-Code-Review-Checklist" class="headerlink" title="Detailed Code Review Checklist"></a>Detailed Code Review Checklist</h3><p>The following code review checklist gives an idea about the various aspects you need to consider while reviewing the code:</p>
+<p><img src="/2019/11/06/code_review_checklist/95021398.png" alt></p>
+<h4 id="Code-formatting"><a href="#Code-formatting" class="headerlink" title="Code formatting"></a>Code formatting</h4><p>While going through the code, check the code formatting to improve readability and ensure that there are no blockers:</p>
+<p>a) Use alignments (left margin), proper white space. Also ensure that code block starting point and ending point are easily identifiable.</p>
+<p>b) Ensure that proper naming conventions (Pascal, CamelCase etc.) have been followed. </p>
+<p>c) Code should fit in the standard 14 inch laptop screen.  There shouldn’t be a need to scroll horizontally to view the code. In a 21 inch monitor, other windows (toolbox, properties etc.) can be opened while modifying code, so always write code keeping in view a 14 inch monitor.</p>
+<p>d) Remove the commented code as this is always a blocker, while going through the code. Commented code can be obtained from Source Control (like SVN), if required.</p>
+<h4 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h4><p>a) The code should follow the defined architecture.</p>
+<p>Separation of Concerns followed<br>Split into multiple layers and tiers as per requirements (Presentation, Business and Data layers).<br>Split into respective files (HTML, JavaScript and CSS).<br>Code is in sync with existing code patterns/technologies.<br>Design patterns: Use appropriate design pattern (if it helps), after completely understanding the problem and context.</p>
+<h4 id="Coding-best-practices"><a href="#Coding-best-practices" class="headerlink" title="Coding best practices"></a>Coding best practices</h4><p>No hard coding, use constants/configuration values.<br>Group similar values under an enumeration (enum).<br>Comments – Do not write comments for what you are doing, instead write comments on why you are doing. Specify about any hacks, workaround and temporary fixes. Additionally, mention pending tasks in your to-do comments, which can be tracked easily.<br>Avoid multiple if/else blocks.<br>Use framework features, wherever possible instead of writing custom code.</p>
+<h4 id="Non-Functional-requirements"><a href="#Non-Functional-requirements" class="headerlink" title="Non Functional requirements"></a>Non Functional requirements</h4><p>a) Maintainability (Supportability) – The application should require the least amount of effort to support in near future. It should be easy to identify and fix a defect.</p>
+<p>Readability: Code should be self-explanatory. Get a feel of story reading, while going through the code. Use appropriate name for variables, functions and classes. If you are taking more time to understand the code, then either code needs refactoring or at least comments have to be written to make it clear.<br>Testability: The code should be easy to test. Refactor into a separate function (if required). Use interfaces while talking to other layers, as interfaces can be mocked easily. Try to avoid static functions, singleton classes as these are not easily testable by mocks.<br>Debuggability: Provide support to log the flow of control, parameter data and exception details to find the root cause easily. If you are using Log4Net like component then add support for database logging also, as querying the log table is easy.<br>Configurability: Keep the configurable values in place (XML file, database table) so that no code changes are required, if the data is changed frequently.<br>b) Reusability</p>
+<p>DRY (Do not Repeat Yourself) principle: The same code should not be repeated more than twice.<br>Consider reusable services, functions and components.<br>Consider generic functions and classes.<br>c) Reliability – Exception handling and cleanup (dispose) resources.</p>
+<p>d) Extensibility – Easy to add enhancements with minimal changes to the existing code. One component should be easily replaceable by a better component.</p>
+<p>e) Security – Authentication, authorization, input data validation against security threats such as SQL injections and Cross Site Scripting (XSS), encrypting the sensitive data (passwords, credit card information etc.)</p>
+<p>f) Performance</p>
+<p>Use a data type that best suits the needs such as StringBuilder, generic collection classes.<br>Lazy loading, asynchronous and parallel processing.<br>Caching and session/application data.<br>g) Scalability – Consider if it supports a large user base/data? Can this be deployed into web farms?</p>
+<p>h) Usability – Put yourself in the shoes of a end-user and ascertain, if the user interface/API is easy to understand and use. If you are not convinced with the user interface design, then start discussing your ideas with the business analyst.</p>
+<h4 id="Object-Oriented-Analysis-and-Design-OOAD-Principles"><a href="#Object-Oriented-Analysis-and-Design-OOAD-Principles" class="headerlink" title="Object-Oriented Analysis and Design (OOAD) Principles"></a>Object-Oriented Analysis and Design (OOAD) Principles</h4><p>Single Responsibility Principle (SRS): Do not place more than one responsibility into a single class or function, refactor into separate classes and functions.<br>Open Closed Principle: While adding new functionality, existing code should not be modified. New functionality should be written in new classes and functions.<br>Liskov substitutability principle: The child class should not change the behavior (meaning) of the parent class. The child class can be used as a substitute for a base class.<br>Interface segregation: Do not create lengthy interfaces, instead split them into smaller interfaces based on the functionality. The interface should not contain any dependencies (parameters), which are not required for the expected functionality.<br>Dependency Injection: Do not hardcode the dependencies, instead inject them.<br>In most cases the principles are interrelated, following one principle automatically satisfies other principles. For e.g: if the ‘Single Responsibility Principle’ is followed, then Reusability and Testability will automatically increase.</p>
+<p>In a few cases, one requirement may contradict with other requirement. So need to trade-off based on the importance of the weight-age, e.g. Performance vs Security. Too many checks and logging at multiple layers (UI, Middle tier, Database) would decrease the performance of an application. But few applications, especially relating to finance and banking require multiple checks, audit logging etc. So it is ok to compromise a little on performance to provide enhanced security.</p>
+<h3 id="Tools-for-Code-Reviews"><a href="#Tools-for-Code-Reviews" class="headerlink" title="Tools for Code Reviews"></a>Tools for Code Reviews</h3><p>The first step while assessing the code quality of the entire project is through a static code analysis tool. Use the tools (based on technology) such as SonarQube, NDepend, FxCop, TFS code analysis rules. There is a myth that static code analysis tools are only for managers.<br>Use plug-ins such as Resharper, which suggests the best practices in Visual studio.<br>To track the code review comments use the tools like Crucible, Bitbucket and TFS code review process.</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>The above code review checklist is not exhaustive, but provides a direction to the code reviewer to conduct effective code reviews and deliver good quality code. Initially, it would take some time to review the code from various aspects. After a bit of practice, code reviewers can perform effective code reviews, without much effort and time. If you would like to become an expert code reviewer, this code review checklist serves as a great starting point. Happy Code Reviewing!</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/checklist/" rel="tag"># checklist</a>
+              <a href="/tags/流程规范/" rel="tag"># 流程规范</a>
+              <a href="/tags/效率/" rel="tag"># 效率</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/11/06/code_review_tips/" rel="next" title="十个有效代码审查的建议">
+                  <i class="fa fa-chevron-left"></i> 十个有效代码审查的建议
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/11/09/童年文章示例/" rel="prev" title="我小时候背过的启蒙读物">
+                  我小时候背过的启蒙读物 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-Code-Review-Checklist"><span class="nav-number">1.</span> <span class="nav-text">Basic Code Review Checklist</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Detailed-Code-Review-Checklist"><span class="nav-number">2.</span> <span class="nav-text">Detailed Code Review Checklist</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Code-formatting"><span class="nav-number">2.1.</span> <span class="nav-text">Code formatting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Architecture"><span class="nav-number">2.2.</span> <span class="nav-text">Architecture</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Coding-best-practices"><span class="nav-number">2.3.</span> <span class="nav-text">Coding best practices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Non-Functional-requirements"><span class="nav-number">2.4.</span> <span class="nav-text">Non Functional requirements</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-Oriented-Analysis-and-Design-OOAD-Principles"><span class="nav-number">2.5.</span> <span class="nav-text">Object-Oriented Analysis and Design (OOAD) Principles</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tools-for-Code-Reviews"><span class="nav-number">3.</span> <span class="nav-text">Tools for Code Reviews</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="九头鸟龙" src="https://avatars0.githubusercontent.com/u/1436509?v=3&s=460">
+  <p class="site-author-name" itemprop="name">九头鸟龙</p>
+  <div class="site-description" itemprop="description">每天锻炼一小时～笑一笑十年少 :-)</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/pengjunlong" title="GitHub &rarr; https://github.com/pengjunlong" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:junlong666@gmail.com" title="E-Mail &rarr; mailto:junlong666@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=357195147&site=qq&menu=yes" title="QQ &rarr; http://wpa.qq.com/msgrd?v=3&uin=357195147&site=qq&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">九头鸟龙</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://pengjunlong.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "http://pengjunlong.github.com/2019/11/06/code_review_checklist/",
+            identifier: "2019/11/06/code_review_checklist/",
+            title: "代码审查的检查项"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://pengjunlong.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    window.addEventListener('load', loadComments, false);
+</script>
+
+</body>
+</html>

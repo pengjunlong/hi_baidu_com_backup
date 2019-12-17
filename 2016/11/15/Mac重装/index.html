@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://github.githubassets.com/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://github.githubassets.com/favicon.ico">
+  <link rel="mask-icon" href="https://github.githubassets.com/favicon.ico" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Just For Fun" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="关于备份可以用外部存储或网络备份，也可以用磁盘工具单独分一个区用来备份 关于重装关机后，开机时（开机音乐响后）按住command+R，如果不小心看到只有一个带感叹号文件夹在闪，可以开机后按住command+option+P+R,然后再开机按住command+R 开机后可选择进入磁盘工具，格式化原系统分区；然后退出磁盘工具，选择重新安装系统，注意需要有靠谱网络连接（实测不稳定出现2003F等错误后可">
+<meta name="keywords" content="折腾,Mac,常用软件快速安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac重装系统">
+<meta property="og:url" content="http://pengjunlong.github.com/2016/11/15/Mac重装/index.html">
+<meta property="og:site_name" content="Just For Fun">
+<meta property="og:description" content="关于备份可以用外部存储或网络备份，也可以用磁盘工具单独分一个区用来备份 关于重装关机后，开机时（开机音乐响后）按住command+R，如果不小心看到只有一个带感叹号文件夹在闪，可以开机后按住command+option+P+R,然后再开机按住command+R 开机后可选择进入磁盘工具，格式化原系统分区；然后退出磁盘工具，选择重新安装系统，注意需要有靠谱网络连接（实测不稳定出现2003F等错误后可">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-17T10:10:25.183Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac重装系统">
+<meta name="twitter:description" content="关于备份可以用外部存储或网络备份，也可以用磁盘工具单独分一个区用来备份 关于重装关机后，开机时（开机音乐响后）按住command+R，如果不小心看到只有一个带感叹号文件夹在闪，可以开机后按住command+option+P+R,然后再开机按住command+R 开机后可选择进入磁盘工具，格式化原系统分区；然后退出磁盘工具，选择重新安装系统，注意需要有靠谱网络连接（实测不稳定出现2003F等错误后可">
+
+<link rel="canonical" href="http://pengjunlong.github.com/2016/11/15/Mac重装/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Mac重装系统 | Just For Fun</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43024673-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-43024673-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?39df86b6077363a57a30b08fc66586c2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Just For Fun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://pengjunlong.github.com/2016/11/15/Mac重装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/1436509?v=3&s=460">
+      <meta itemprop="name" content="九头鸟龙">
+      <meta itemprop="description" content="每天锻炼一小时～笑一笑十年少 :-)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Just For Fun">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mac重装系统
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-11-15 17:33:00" itemprop="dateCreated datePublished" datetime="2016-11-15T17:33:00+08:00">2016-11-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-17 18:10:25" itemprop="dateModified" datetime="2019-12-17T18:10:25+08:00">2019-12-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/我的大学/" itemprop="url" rel="index">
+                    <span itemprop="name">我的大学</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/11/15/Mac重装/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/15/Mac重装/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="关于备份"><a href="#关于备份" class="headerlink" title="关于备份"></a>关于备份</h1><p>可以用外部存储或网络备份，也可以用磁盘工具单独分一个区用来备份</p>
+<h1 id="关于重装"><a href="#关于重装" class="headerlink" title="关于重装"></a>关于重装</h1><p>关机后，开机时（开机音乐响后）按住command+R，如果不小心看到只有一个带感叹号文件夹在闪，可以开机后按住command+option+P+R,然后再开机按住command+R</p>
+<p>开机后可选择进入磁盘工具，格式化原系统分区；然后退出磁盘工具，选择重新安装系统，注意需要有靠谱网络连接（实测不稳定出现2003F等错误后可关机重复操作，直至下载进度条完成）</p>
+<h1 id="软件安装与配置"><a href="#软件安装与配置" class="headerlink" title="软件安装与配置"></a>软件安装与配置</h1><h2 id="码农必备xcode-command-tools"><a href="#码农必备xcode-command-tools" class="headerlink" title="码农必备xcode command tools"></a>码农必备xcode command tools</h2><p>可使用xcode-select -p查看是否已安装</p>
+<p>也可直接敲gcc命令，mac会聪明的自动弹出安装对话框，选择安装即可</p>
+<p>安装后亲切的git等命令就可以用了</p>
+<h2 id="软件管理必备brew"><a href="#软件管理必备brew" class="headerlink" title="软件管理必备brew"></a>软件管理必备brew</h2><p>使用mac自带“终端”程序，敲入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>”</span></span><br></pre></td></tr></table></figure>
+
+<p>即完成brew安装。</p>
+<p><del>使用brew cask可方便的安装一些GUI软件，可考虑加上</del> 新版不需要了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install caskroom/cask/brew-cask</span><br></pre></td></tr></table></figure>
+
+<p>brew操作过程中可能会遇到github API报错（如果brew源未更改的话）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: GitHub API Error: API rate <span class="built_in">limit</span> exceeded <span class="keyword">for</span> 103.37.140.11.</span><br></pre></td></tr></table></figure>
+
+<p>根据命令行提示去github申请单独token即可</p>
+<p>使用国内软件源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="string">"<span class="variable">$(brew --repo)</span>"</span></span><br><span class="line">git remote <span class="built_in">set</span>-url origin https://mirrors.ustc.edu.cn/brew.git</span><br><span class="line"><span class="built_in">cd</span> <span class="string">"<span class="variable">$(brew --repo)</span>/Library/Taps/homebrew/homebrew-core"</span></span><br><span class="line">git remote <span class="built_in">set</span>-url origin https://mirrors.ustc.edu.cn/homebrew-core.git</span><br><span class="line">brew update -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#替换终端</span></span><br><span class="line">brew cask install iterm2</span><br><span class="line"><span class="comment">#替换浏览器</span></span><br><span class="line">brew cask install google-chrome</span><br><span class="line"><span class="comment">#开发</span></span><br><span class="line">brew cask install java</span><br><span class="line">brew install maven</span><br><span class="line">brew install jetty</span><br><span class="line">brew install vim --with-lua --with-override-system-vi</span><br><span class="line"><span class="comment">#brew cask install android-studio</span></span><br><span class="line">brew cask install intellij-idea</span><br><span class="line">brew install wget</span><br><span class="line"><span class="comment">#虚拟机，安装Windows用</span></span><br><span class="line">brew cask install virtualbox virtualbox-extension-pack</span><br><span class="line">brew cask install the-unarchiver</span><br><span class="line">brew cask install mplayerx</span><br><span class="line"><span class="comment">#输入法</span></span><br><span class="line">brew cask install sogouinput</span><br><span class="line">open /usr/<span class="built_in">local</span>/Caskroom/sogouinput/3.8.0.2054/安装搜狗输入法.app</span><br></pre></td></tr></table></figure>
+
+<h2 id="git库访问权限支持"><a href="#git库访问权限支持" class="headerlink" title="git库访问权限支持"></a>git库访问权限支持</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">"xxx@gmail.com"</span></span><br><span class="line"><span class="comment">#拷贝公钥</span></span><br><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<h2 id="goproxy"><a href="#goproxy" class="headerlink" title="goproxy"></a>goproxy</h2><p>编译安装比较纠结（“GoProxy 对 golang 周边库做了一些修改”），所以直接下载编译好的包比较方便</p>
+<p><a href="https://github.com/phuslu/goproxy/blob/wiki/SimpleGuide.md" target="_blank" rel="noopener">简易教程</a></p>
+<p>访问<a href="https://github.com/phuslu/goproxy-ci/releases/latest下载最新版，如goproxy_macos_amd64-r1419.tar.bz2，文件托管在amazonaws.com，会有点慢" target="_blank" rel="noopener">https://github.com/phuslu/goproxy-ci/releases/latest下载最新版，如goproxy_macos_amd64-r1419.tar.bz2，文件托管在amazonaws.com，会有点慢</a></p>
+<p>查看appid可访问<a href="https://console.cloud.google.com/home/dashboard" target="_blank" rel="noopener">https://console.cloud.google.com/home/dashboard</a></p>
+<p>导入代理自动切换规则可以参考<a href="https://github.com/gfwlist/gfwlist" target="_blank" rel="noopener">https://github.com/gfwlist/gfwlist</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mkdir goproxy</span><br><span class="line"><span class="built_in">cd</span> goproxy</span><br><span class="line"><span class="comment">#先下载gae服务器程序，用来上传到gae平台，之前已经部署过的话可以跳过</span></span><br><span class="line"><span class="comment">#上传成功，请不要忘记编辑 gae.user.json 把你的appid填进去</span></span><br><span class="line">wget https://github.com/phuslu/goproxy-ci/releases/download/r1419/goproxy-gae-r65.zip</span><br><span class="line">unzip goproxy-gae-r65.zip</span><br><span class="line"><span class="built_in">cd</span> goproxy-r65</span><br><span class="line">python uploader.py</span><br><span class="line"><span class="comment">#然后是下载本地客户端，这里下载的是命令行形式的，也可以下载mac app版本</span></span><br><span class="line">wget https://github.com/phuslu/goproxy-ci/releases/download/r1419/goproxy_macos_amd64-r1419.tar.bz2</span><br><span class="line">tar zxvf goproxy_macos_amd64-r1419.tar.bz2</span><br><span class="line"><span class="comment">#编辑完gae.json就可以运行了</span></span><br><span class="line">vim gae.json</span><br><span class="line">sudo ./goproxy -v=2</span><br><span class="line"><span class="comment">#下载SwitchyOmega插件对应的备份配置，然后导入插件</span></span><br><span class="line">wget https://raw.githubusercontent.com/pengjunlong/goagent/master/<span class="built_in">local</span>/SwitchyOptions.bak</span><br></pre></td></tr></table></figure>
+
+<h2 id="chrome设置"><a href="#chrome设置" class="headerlink" title="chrome设置"></a>chrome设置</h2><p>登录以同步设置、扩展、书签等<br>SwitchyOmega扩展用来配合科学上网，</p>
+<p>配置在线恢复：<br><a href="http://switchysharp.com/file/SwitchyOptions.bak" target="_blank" rel="noopener">http://switchysharp.com/file/SwitchyOptions.bak</a></p>
+<p>配置自动切换：<br><a href="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" target="_blank" rel="noopener">https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</a></p>
+<h2 id="dotfile管理"><a href="#dotfile管理" class="headerlink" title="dotfile管理"></a>dotfile管理</h2><p><a href="https://github.com/skwp/dotfiles" target="_blank" rel="noopener">https://github.com/skwp/dotfiles</a></p>
+<p>从github上的介绍，这个“Yet Another Dotfile Repo”包含了vim、zsh相关的很多优秀插件和配置，mac的话还会帮你安装iterm2配色方案，当然有的配置可能不太符合个人原有使用习惯</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh `"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="启用iterm2中的Solarized-Colors"><a href="#启用iterm2中的Solarized-Colors" class="headerlink" title="启用iterm2中的Solarized Colors"></a>启用iterm2中的Solarized Colors</h3><p>Go to Profiles =&gt; Colors =&gt; Load Presets to pick Solarized Dark.</p>
+<h2 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装hexo</span></span><br><span class="line">brew install node</span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment">#下载博客hexo分支</span></span><br><span class="line">git <span class="built_in">clone</span> -b hexo --single-branch git@github.com:pengjunlong/pengjunlong.github.io.git hexo</span><br><span class="line"><span class="built_in">cd</span> hexo/</span><br><span class="line">npm install</span><br><span class="line"><span class="comment">#下载主题</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br><span class="line">git status</span><br><span class="line">git checkout themes/</span><br><span class="line"><span class="comment">#运行</span></span><br><span class="line">hexo s -w</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/折腾/" rel="tag"># 折腾</a>
+              <a href="/tags/Mac/" rel="tag"># Mac</a>
+              <a href="/tags/常用软件快速安装/" rel="tag"># 常用软件快速安装</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2016/08/01/增加了一个hexo-admin插件/" rel="next" title="增加了一个hexo-admin插件">
+                  <i class="fa fa-chevron-left"></i> 增加了一个hexo-admin插件
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2017/04/01/java并发编程的艺术笔记/" rel="prev" title="《java并发编程的艺术》笔记">
+                  《java并发编程的艺术》笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于备份"><span class="nav-number">1.</span> <span class="nav-text">关于备份</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于重装"><span class="nav-number">2.</span> <span class="nav-text">关于重装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软件安装与配置"><span class="nav-number">3.</span> <span class="nav-text">软件安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#码农必备xcode-command-tools"><span class="nav-number">3.1.</span> <span class="nav-text">码农必备xcode command tools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件管理必备brew"><span class="nav-number">3.2.</span> <span class="nav-text">软件管理必备brew</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用软件"><span class="nav-number">3.3.</span> <span class="nav-text">常用软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git库访问权限支持"><span class="nav-number">3.4.</span> <span class="nav-text">git库访问权限支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goproxy"><span class="nav-number">3.5.</span> <span class="nav-text">goproxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chrome设置"><span class="nav-number">3.6.</span> <span class="nav-text">chrome设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dotfile管理"><span class="nav-number">3.7.</span> <span class="nav-text">dotfile管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#启用iterm2中的Solarized-Colors"><span class="nav-number">3.7.1.</span> <span class="nav-text">启用iterm2中的Solarized Colors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo安装"><span class="nav-number">3.8.</span> <span class="nav-text">hexo安装</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="九头鸟龙" src="https://avatars0.githubusercontent.com/u/1436509?v=3&s=460">
+  <p class="site-author-name" itemprop="name">九头鸟龙</p>
+  <div class="site-description" itemprop="description">每天锻炼一小时～笑一笑十年少 :-)</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/pengjunlong" title="GitHub &rarr; https://github.com/pengjunlong" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:junlong666@gmail.com" title="E-Mail &rarr; mailto:junlong666@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=357195147&site=qq&menu=yes" title="QQ &rarr; http://wpa.qq.com/msgrd?v=3&uin=357195147&site=qq&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">九头鸟龙</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://pengjunlong.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "http://pengjunlong.github.com/2016/11/15/Mac重装/",
+            identifier: "2016/11/15/Mac重装/",
+            title: "Mac重装系统"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://pengjunlong.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    window.addEventListener('load', loadComments, false);
+</script>
+
+</body>
+</html>
